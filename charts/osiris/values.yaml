@@ -32,6 +32,7 @@ activator:
   affinity: {}
   deployment:
     annotations: {}
+    podAnnotations: {}
 
 zeroscaler:
   # zeroscaler.resources -- custom resource configuration
@@ -53,6 +54,7 @@ zeroscaler:
   metricsCheckInterval: 150
   deployment:
     annotations: {}
+    podAnnotations: {}
 
 proxyInjector:
   # proxyInjector.replicaCount -- Number of replicas for the proxy injector deployment.
@@ -73,6 +75,7 @@ proxyInjector:
   affinity: {}
   deployment:
     annotations: {}
+    podAnnotations: {}
 
 endpointsController:
   # endpointsController.resources -- custom resource configuration
@@ -91,6 +94,7 @@ endpointsController:
   affinity: {}
   deployment:
     annotations: {}
+    podAnnotations: {}
 
 endpointsHijacker:
   # endpointsHijacker.replicaCount -- Number of replicas for the endpoints hijacker  deployment.
@@ -111,3 +115,4 @@ endpointsHijacker:
   affinity: {}
   deployment:
     annotations: {}
+    podAnnotations: {}

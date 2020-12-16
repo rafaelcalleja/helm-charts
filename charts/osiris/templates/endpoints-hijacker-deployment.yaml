@@ -24,6 +24,10 @@ spec:
         app.kubernetes.io/name: {{ include "osiris.name" . }}-endpoints-hijacker
         app.kubernetes.io/instance: {{ .Release.Name }}
         releaseRevision: "{{ .Release.Revision }}"
+      {{- if .Values.endpointsHijacker.deployment.podAnnotations }}
+      annotations:
+      {{ tpl (toYaml .Values.endpointsHijacker.deployment.podAnnotations) . | indent 8 }}
+      {{- end }}
     spec:
       serviceAccountName: {{ include "osiris.fullname" . }}
     {{- with .Values.imagePullSecrets }}

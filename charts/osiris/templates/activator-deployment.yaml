@@ -23,6 +23,10 @@ spec:
       labels:
         app.kubernetes.io/name: {{ include "osiris.name" . }}-activator
         app.kubernetes.io/instance: {{ .Release.Name }}
+    {{- if .Values.activator.deployment.podAnnotations }}
+      annotations:
+    {{ tpl (toYaml .Values.activator.deployment.podAnnotations) . | indent 8 }}
+    {{- end }}
     spec:
       serviceAccountName: {{ include "osiris.fullname" . }}
     {{- with .Values.imagePullSecrets }}
