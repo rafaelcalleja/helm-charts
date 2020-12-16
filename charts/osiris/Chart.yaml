@@ -1,0 +1,11 @@
+apiVersion: v1
+name: osiris
+description: A general purpose, scale-to-zero component for Kubernetes
+version: v0.0.4
+appVersion: v0.3.0
+home: https://github.com/whyeasy/osiris
+maintainers:
+  - email: developers@dokify.net
+    name: Dokify
+sources:
+- https://github.com/whyeasy/osiris
