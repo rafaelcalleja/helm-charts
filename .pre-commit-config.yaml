@@ -3,11 +3,11 @@ repos:
     hooks:
       - id: lint
         name: lint
-        language: script
+        language: system
         entry: make lint
         verbose: true
         pass_filenames: false
-        files: charts/(\.yaml)$
+        files: charts/.*(\.yaml)$
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v3.3.0
     hooks:
