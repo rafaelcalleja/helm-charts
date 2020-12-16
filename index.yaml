@@ -3,6 +3,21 @@ entries:
   osiris:
   - apiVersion: v1
     appVersion: v0.3.0
+    created: "2020-12-16T16:19:52.223729885Z"
+    description: A general purpose, scale-to-zero component for Kubernetes
+    digest: c8bf9542bca3f0b03c4f9cc91d37f7596e125ca4b29f509b883eb74d826ce764
+    home: https://github.com/whyeasy/osiris
+    maintainers:
+    - email: developers@dokify.net
+      name: Dokify
+    name: osiris
+    sources:
+    - https://github.com/whyeasy/osiris
+    urls:
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/osiris-v0.0.5/osiris-v0.0.5.tgz
+    version: v0.0.5
+  - apiVersion: v1
+    appVersion: v0.3.0
     created: "2020-12-16T15:54:54.76384093Z"
     description: A general purpose, scale-to-zero component for Kubernetes
     digest: c6f1b2108d72b92fa1100ef1ecad890dfa7411700cd4dcc85cdfcf30980e6237
