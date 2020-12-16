@@ -9,11 +9,11 @@ This repository contains [Helm](https://helm.sh) charts for various projects
 Add the Repository to Helm:
 
 ```sh
-helm repo add whyeasy-helm-charts https://whyeasy.github.io/helm-charts
+helm repo add rafaelcalleja-helm-charts https://rafaelcalleja.github.io/helm-charts
 ```
 
 Install a chart:
 
 ```sh
-helm install whyeasy-helm-charts/[CHART_NAME]
+helm install rafaelcalleja-helm-charts/[CHART_NAME]
 ```
