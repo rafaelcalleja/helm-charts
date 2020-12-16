@@ -8,6 +8,10 @@ metadata:
     helm.sh/chart: {{ include "osiris.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
+{{- if .Values.endpointsController.deployment.annotations }}
+  annotations:
+{{ tpl (toYaml .Values.endpointsController.deployment.annotations) . | trim | indent 4 }}
+{{- end }}
 spec:
   replicas: 1
   selector:
