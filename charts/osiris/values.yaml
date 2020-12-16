@@ -31,7 +31,7 @@ activator:
   # activator.affinity -- affinity for scheduler pod assignment
   affinity: {}
   deployment:
-    annotations: { }
+    annotations: {}
 
 zeroscaler:
   # zeroscaler.resources -- custom resource configuration
@@ -52,7 +52,7 @@ zeroscaler:
   # The value is the number of seconds of the interval
   metricsCheckInterval: 150
   deployment:
-    annotations: { }
+    annotations: {}
 
 proxyInjector:
   # proxyInjector.replicaCount -- Number of replicas for the proxy injector deployment.
@@ -72,7 +72,7 @@ proxyInjector:
   # proxyInjector.affinity -- affinity for scheduler pod assignment
   affinity: {}
   deployment:
-    annotations: { }
+    annotations: {}
 
 endpointsController:
   # endpointsController.resources -- custom resource configuration
@@ -90,7 +90,7 @@ endpointsController:
   # endpointsController.affinity -- affinity for scheduler pod assignment
   affinity: {}
   deployment:
-    annotations: { }
+    annotations: {}
 
 endpointsHijacker:
   # endpointsHijacker.replicaCount -- Number of replicas for the endpoints hijacker  deployment.
