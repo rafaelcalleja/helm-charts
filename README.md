@@ -4,7 +4,7 @@ This repository contains [Helm](https://helm.sh) charts for various projects
 
 - [Osiris](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/osiris)
 - [MysqlCluster](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/mysql-cluster)
-- [Octant-Dashboard](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/octant-dashboard)
+- [Octant](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/octant)
 
 ## Installing Charts from this Repository
 
