@@ -1,0 +1,11 @@
+apiVersion: v1
+appVersion: "1.0"
+description: A Helm chart for easy deployment of a MySQL cluster with MySQL operator.
+name: mysql-cluster
+version: 0.3.0
+home: https://github.com/presslabs/mysql-operator
+maintainers:
+  - email: developers@dokify.net
+    name: Dokify
+sources:
+  - https://github.com/presslabs/mysql-operator
