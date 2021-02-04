@@ -34,6 +34,21 @@ entries:
     version: 0.16.2
   osiris:
   - apiVersion: v1
+    appVersion: v0.0.45
+    created: "2021-02-04T11:04:36.632837091Z"
+    description: A general purpose, scale-to-zero component for Kubernetes
+    digest: d15d0f0720ac91ea75f73a241aa375fd546fd8c6cd5870f11b585cb7c79ab866
+    home: https://github.com/dailymotion-oss/osiris
+    maintainers:
+    - email: developers@dokify.net
+      name: Dokify
+    name: osiris
+    sources:
+    - https://github.com/dailymotion-oss/osiris
+    urls:
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/osiris-v0.0.6/osiris-v0.0.6.tgz
+    version: v0.0.6
+  - apiVersion: v1
     appVersion: v0.3.0
     created: "2020-12-16T16:19:52.223729885Z"
     description: A general purpose, scale-to-zero component for Kubernetes
