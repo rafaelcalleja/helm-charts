@@ -30,18 +30,16 @@ spec:
       {{- end }}
     spec:
       serviceAccountName: {{ include "osiris.fullname" . }}
-    {{- with .Values.imagePullSecrets }}
-      imagePullSecrets:
-        {{- toYaml . | nindent 8 }}
-    {{- end }}
       containers:
       - name: proxy-injector
-        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
-        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}
+        {{- with .Values.image.pullPolicy }}
+        imagePullPolicy: {{ . }}
+        {{- end }}
         securityContext:
           runAsUser: 1000
         command:
-        - osiris
+        - /osiris/bin/osiris
         args:
         - --logtostderr=true
         - proxy-injector
@@ -51,9 +49,15 @@ spec:
         - name: TLS_KEY_FILE
           value: /osiris/cert/tls.key
         - name: PROXY_IMAGE
-          value: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          value: {{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}
+        {{- with .Values.image.pullPolicy }}
         - name: PROXY_IMAGE_PULL_POLICY
-          value: {{ .Values.image.pullPolicy }}
+          value: {{ . }}
+        {{- end }}
+        {{- with .Values.proxyInjector.proxyLogLevel }}
+        - name: PROXY_LOG_LEVEL
+          value: {{ . | quote }}
+        {{- end }}
         ports:
         - name: https
           containerPort: 5000

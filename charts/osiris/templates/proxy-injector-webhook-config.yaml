@@ -30,7 +30,7 @@ metadata:
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
 webhooks:
-- name: proxy-injector.osiris.deislabs.io
+- name: proxy-injector.osiris.dm.gg
   clientConfig:
     service:
       namespace: {{ .Release.Namespace }}

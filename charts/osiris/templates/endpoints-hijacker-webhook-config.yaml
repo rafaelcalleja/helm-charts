@@ -30,7 +30,7 @@ metadata:
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
 webhooks:
-- name: endpoints-hijacker.osiris.deislabs.io
+- name: endpoints-hijacker.osiris.dm.gg
   clientConfig:
     service:
       namespace: {{ .Release.Namespace }}
