@@ -6,6 +6,7 @@ This repository contains [Helm](https://helm.sh) charts for various projects
 - [MysqlCluster](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/mysql-cluster)
 - [Octant](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/octant)
 - [kube-prometheus-stack](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/kube-prometheus-stack)
+- [kuberhealthy](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/kuberhealthy)
 
 ## Installing Charts from this Repository
 
