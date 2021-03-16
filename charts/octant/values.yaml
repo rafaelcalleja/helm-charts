@@ -1,7 +1,7 @@
 replicas: 1
 
 image:
-  fullname: aleveille/octant-dashboard:v0.16.2
+  fullname: aleveille/octant-dashboard:v0.17.0
   pullPolicy: IfNotPresent
 
 keycloakGatekeeper:
@@ -57,8 +57,8 @@ clusterRole:
 plugins:
   install: ~
   # Eg:
-  # - https://github.com/aquasecurity/starboard-octant-plugin/releases/download/v0.6.0/starboard-octant-plugin_linux_x86_64.tar.gz
-  # - https://github.com/bloodorangeio/octant-helm/releases/download/v0.1.0/octant-helm_0.1.0_linux_amd64.tar.gz
+  #- https://github.com/aquasecurity/starboard-octant-plugin/releases/download/v0.6.0/starboard-octant-plugin_linux_x86_64.tar.gz
+  #- https://github.com/bloodorangeio/octant-helm/releases/download/v0.1.0/octant-helm_0.1.0_linux_amd64.tar.gz
   dir:
     mount:
       emptyDir: {}
