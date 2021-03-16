@@ -106,6 +106,21 @@ entries:
   octant:
   - apiVersion: v1
     appVersion: 0.16.2
+    created: "2021-03-16T09:59:56.040929261Z"
+    description: A Helm chart to deploy Octant (vmware-tanzu/octant) to Kubernetes
+    digest: 642cf4a95fed359d55e64d1721d99bb5f12bd7245f88e960cefe8b562d06167d
+    home: https://github.com/aleveille/octant-dashboard-turnkey
+    maintainers:
+    - email: developers@dokify.net
+      name: Dokify
+    name: octant
+    sources:
+    - https://github.com/aleveille/octant-dashboard-turnkey
+    urls:
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/octant-0.17.0/octant-0.17.0.tgz
+    version: 0.17.0
+  - apiVersion: v1
+    appVersion: 0.16.2
     created: "2020-12-17T11:55:41.321764419Z"
     description: A Helm chart to deploy Octant (vmware-tanzu/octant) to Kubernetes
     digest: 791a0e9051f01c18cc0d1ceb1795ea87ebc79261bab6e3824b4c1acbb9a67253
