@@ -1,6 +1,6 @@
 SHELL = /bin/bash
 
-CT := docker run --rm -v $$(pwd):/opt -w /opt quay.io/helmpack/chart-testing:latest ct
+CT := docker run --rm -v $$(pwd):/opt -w /opt quay.io/helmpack/chart-testing:v3.4.0 ct
 HELM := docker run --rm -v $$(pwd):/opt -w /opt alpine/helm
 CHARTS := $(shell find charts -mindepth 2 -maxdepth 2 -name Chart.yaml | cut -d/ -f2)
 
