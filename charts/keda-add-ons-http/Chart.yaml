@@ -1,4 +1,4 @@
-apiVersion: v2
+apiVersion: v1
 appVersion: 0.3.0
 description: Event-based autoscaler for HTTP workloads on Kubernetes
 home: https://github.com/kedacore/http-add-on
