@@ -1,4 +1,4 @@
-apiVersion: v2
+apiVersion: v1
 description: Event-based autoscaler for workloads on Kubernetes
 home: https://github.com/kedacore/keda
 icon: https://raw.githubusercontent.com/kedacore/keda/main/images/keda-logo-500x500-white.png
