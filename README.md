@@ -8,6 +8,7 @@ This repository contains [Helm](https://helm.sh) charts for various projects
 - [kube-prometheus-stack](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/kube-prometheus-stack)
 - [kuberhealthy](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/kuberhealthy)
 - [keda-add-ons-http](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/keda-add-ons-http)
+- [keda](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/keda)
 
 ## Installing Charts from this Repository
 
