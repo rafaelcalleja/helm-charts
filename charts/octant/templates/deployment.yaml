@@ -72,7 +72,7 @@ spec:
         - name: sso
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: keycloak/keycloak-gatekeeper:latest
+          image: {{ .Values.keycloakGatekeeper.image }}
           imagePullPolicy: Always
           args:
           - --client-id={{ .Values.keycloakGatekeeper.clientId }}

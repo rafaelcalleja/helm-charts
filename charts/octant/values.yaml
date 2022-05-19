@@ -6,6 +6,7 @@ image:
 
 keycloakGatekeeper:
   enabled: false
+  image: dokify/keycloak-gatekeeper:443cda327f52
   url: ~
   clientId: ~
   clientSecret: ~
