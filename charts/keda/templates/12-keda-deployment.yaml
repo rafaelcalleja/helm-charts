@@ -60,6 +60,7 @@ spec:
           - --leader-elect
           - "--zap-log-level={{ .Values.logging.operator.level }}"
           - "--zap-encoder={{ .Values.logging.operator.format }}"
+          - "--zap-time-encoding={{ .Values.logging.operator.timeEncoding }}"
           {{- range $key, $value := .Values.extraArgs.keda }}
           - --{{ $key }}={{ $value }}
           {{- end }}
@@ -126,8 +127,9 @@ spec:
       {{- if .Values.volumes.keda.extraVolumes }}
       {{- toYaml .Values.volumes.keda.extraVolumes | nindent 8 }}
       {{- end }}
-      {{- with .Values.nodeSelector }}
       nodeSelector:
+        kubernetes.io/os: linux
+      {{- with .Values.nodeSelector }}
         {{- toYaml . | nindent 8 }}
       {{- end }}
       {{- with .Values.affinity }}

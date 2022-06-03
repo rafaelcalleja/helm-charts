@@ -70,26 +70,31 @@ their default values.
 | `additionalLabels`                                         | Additional labels to apply to KEDA workloads | `{}` |
 | `podAnnotations.keda`                                      | Pod annotations for KEDA operator | `{}` |
 | `podAnnotations.metricsAdapter`                            | Pod annotations for KEDA Metrics Adapter | `{}` |
+| `podDisruptionBudget.operator`                                      | Capability to configure [Pod Disruption Budget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/)       | `{}` |
+| `podDisruptionBudget.metricServer`                                      | Capability to configure [Pod Disruption Budget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/)       | `{}` |
 | `podLabels.keda`                                           | Pod labels for KEDA operator | `{}` |
 | `podLabels.metricsAdapter`                                 | Pod labels for KEDA Metrics Adapter | `{}` |
-| `podDisruptionBudget`                                      | Capability to configure [Pod Disruption Budget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/)       | `{}` |
 | `rbac.create`                                              | Specifies whether RBAC should be used | `true`                                        |
 | `serviceAccount.create`                                    | Specifies whether a service account should be created       | `true`                                        |
 | `serviceAccount.name`                                      | The name of the service account to use. If not set and create is true, a name is generated.      | `keda-operator` |
 | `serviceAccount.annotations`                               | Annotations to add to the service account | `{}` |
 | `podIdentity.activeDirectory.identity`                     | Identity in Azure Active Directory to use for Azure pod identity | `` |
+| `podIdentity.azureWorkload.clientId`                       | Id of Azure Active Directory Client to use for authentication with Azure Workload Identity. ([docs](https://keda.sh/docs/concepts/authentication/#azure-workload-identity)) | `` |
+| `podIdentity.azureWorkload.enabled`                        | Specifies whether [Azure Workload Identity](https://azure.github.io/azure-workload-identity/) is to be enabled or not. ([docs](https://keda.sh/docs/concepts/authentication/#azure-workload-identity)) | `false` |
+| `podIdentity.azureWorkload.tenantId`                       | Id Azure Active Directory Tenant to use for authentication with for Azure Workload Identity. ([docs](https://keda.sh/docs/concepts/authentication/#azure-workload-identity)) | `` |
+| `podIdentity.azureWorkload.tokenExpiration`                | Duration in seconds to automatically expire tokens for the service account. ([docs](https://keda.sh/docs/concepts/authentication/#azure-workload-identity)) | `3600` |
 | `grpcTLSCertsSecret`                                       | Name of the secret that will be mounted to the /grpccerts path on the Pod to communicate over TLS with external scaler(s) (recommended).  | ``|
 | `hashiCorpVaultTLS`                                        | Name of the secret that will be mounted to the /vault path on the Pod to communicate over TLS with HashiCorp Vault (recommended). | `` |
 | `logging.operator.level`                                   | Logging level for KEDA Operator. Allowed values are 'debug', 'info' & 'error'. | `info`                                        |
 | `logging.operator.format`                                  | Logging format for KEDA Operator. Allowed values are 'console' & 'json'. | `console`                                        |
-| `logging.operator.timeFormat`                              | Logging time format for KEDA Operator. Allowed values are 'epoch', 'millis', 'nano', or 'iso8601'. | `epoch` |
+| `logging.operator.timeEncoding`                            | Logging time format for KEDA Operator. Allowed values are 'epoch', 'millis', 'nano', 'iso8601', 'rfc3339' or 'rfc3339nano'. | `rfc3339` |
 | `logging.metricServer.level`                               | Logging level for Metrics Server.Policy to use to pull Docker images. Allowed values are '0' for info, '4' for debug, or an integer value greater than 0, specified as string | `0` |
-| `securityContext`                                          | Security context for all containers ([docs](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container)) | `{}` |
-| `securityContext.operator`                                 | Security context of the operator container ([docs](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container)) | `` |
-| `securityContext.metricServer`                             | Security context of the metricServer container ([docs](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container)) | `` |
-| `podSecurityContext`                                       | Pod security context for all pods ([docs](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)) | `{}` |
-| `podSecurityContext.operator`                              | Pod security context of the KEDA operator pod ([docs](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)) | `` |
-| `podSecurityContext.metricServer`                          | Pod security context of the KEDA metrics apiserver pod ([docs](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)) | `` |
+| `securityContext`                                          | Security context for all containers ([docs](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container)) | [See below](#KEDA-is-secure-by-default) |
+| `securityContext.operator`                                 | Security context of the operator container ([docs](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container)) | [See below](#KEDA-is-secure-by-default) |
+| `securityContext.metricServer`                             | Security context of the metricServer container ([docs](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container)) | [See below](#KEDA-is-secure-by-default) |
+| `podSecurityContext`                                       | Pod security context for all pods ([docs](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)) | [See below](#KEDA-is-secure-by-default) |
+| `podSecurityContext.operator`                              | Pod security context of the KEDA operator pod ([docs](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)) | [See below](#KEDA-is-secure-by-default) |
+| `podSecurityContext.metricServer`                          | Pod security context of the KEDA metrics apiserver pod ([docs](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)) | [See below](#KEDA-is-secure-by-default) |
 | `resources`                                                | Manage resource request & limits of all KEDA workloads ([docs](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/)) | `{}` |
 | `resources.operator`                                       | Manage resource request & limits of KEDA operator pod ([docs](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/)) | `` |
 | `resources.metricServer`                                   | Manage resource request & limits of KEDA metrics apiserver pod ([docs](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/)) | `` |
@@ -146,4 +151,30 @@ be provided while installing the chart. For example,
 
 ```console
 helm install keda kedacore/keda --namespace keda -f values.yaml
+```
+
+## KEDA is secure by default
+
+Our default configuration strives to be as secure as possible. Because of that, KEDA will run as non-root and be secure-by-default:
+```yaml
+securityContext:
+  operator:
+    capabilities:
+      drop:
+      - ALL
+    allowPrivilegeEscalation: false
+    readOnlyRootFilesystem: true
+  metricServer:
+    capabilities:
+      drop:
+      - ALL
+    allowPrivilegeEscalation: false
+    ## Metrics server needs to write the self-signed cert so it's not possible set this
+    # readOnlyRootFilesystem: true
+
+podSecurityContext:
+  operator:
+    runAsNonRoot: true
+  metricServer:
+    runAsNonRoot: true
 ```

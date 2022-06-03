@@ -19,6 +19,7 @@ crds:
 watchNamespace: ""
 
 imagePullSecrets: []
+
 operator:
   name: keda-operator
   replicaCount: 1
@@ -28,8 +29,17 @@ metricsServer:
   dnsPolicy: ClusterFirst
   useHostNetwork: false
 
+podDisruptionBudget: {}
+  # operator:
+  #   minAvailable: 1
+  #   maxUnavailable: 1
+  # metricServer:
+  #   minAvailable: 1
+  #   maxUnavailable: 1
+
 # -- Custom labels to add into metadata
-additionalLabels: {}
+additionalLabels:
+  {}
   # foo: bar
 
 podAnnotations:
@@ -38,12 +48,6 @@ podAnnotations:
 podLabels:
   keda: {}
   metricsAdapter: {}
-
-## See `kubectl explain poddisruptionbudget.spec` for more
-## ref: https://kubernetes.io/docs/tasks/run-application/configure-pdb/
-podDisruptionBudget: {}
-#  minAvailable: 1
-#  maxUnavailable: 1
 
 rbac:
   create: true
@@ -57,11 +61,24 @@ serviceAccount:
   # Annotations to add to the service account
   annotations: {}
 
-# Set to the value of the Azure Active Directory Pod Identity
-# This will be set as a label on the KEDA Pod(s)
 podIdentity:
   activeDirectory:
+    # Set to the value of the Azure Active Directory Pod Identity
+    # See https://keda.sh/docs/concepts/authentication/#azure-pod-identity
+    # This will be set as a label on the KEDA Pod(s)
     identity: ""
+  azureWorkload:
+    # Set to true to enable Azure Workload Identity usage.
+    # See https://keda.sh/docs/concepts/authentication/#azure-workload-identity
+    # This will be set as a label on the KEDA service account.
+    enabled: false
+    # Set to the value of the Azure Active Directory Client and Tenant Ids
+    # respectively. These will be set as annotations on the KEDA service account.
+    clientId: ""
+    tenantId: ""
+    # Set to the value of the service account token expiration duration.
+    # This will be set as an annotation on the KEDA service account.
+    tokenExpiration: 3600
 
 # Set this if you are using an external scaler and want to communicate
 # over TLS (recommended). This variable holds the name of the secret that
@@ -79,37 +96,45 @@ logging:
     # allowed values: 'debug', 'info', 'error', or an integer value greater than 0, specified as string
     # default value: info
     level: info
-    # allowed valuesL 'json' or 'console'
+    # allowed values: 'json' or 'console'
     # default value: console
     format: console
+    ## Logging time encoding for KEDA Operator
+    # allowed values are 'epoch', 'millis', 'nano', 'iso8601', 'rfc3339' or 'rfc3339nano'
+    # default value: rfc3339
+    timeEncoding: rfc3339
   metricServer:
     ## Logging level for Metrics Server
     # allowed values: '0' for info, '4' for debug, or an integer value greater than 0, specified as string
     # default value: 0
     level: 0
 
-podSecurityContext: {}
-  # operator:
-  #   fsGroup: 2000
-  # metricServer:
-  #   fsGroup: 2000
+securityContext:
+  operator:
+    capabilities:
+      drop:
+      - ALL
+    allowPrivilegeEscalation: false
+    readOnlyRootFilesystem: true
+  metricServer:
+    capabilities:
+      drop:
+      - ALL
+    allowPrivilegeEscalation: false
+    ## Metrics server needs to write the self-signed cert so it's not possible set this
+    # readOnlyRootFilesystem: true
 
-securityContext: {}
-  # operator:
-  #   capabilities:
-  #     drop:
-  #     - ALL
-  #   allowPrivilegeEscalation: false
-  #   readOnlyRootFilesystem: true
-  #   runAsNonRoot: true
-  #   runAsUser: 1000
-  # metricServer:
-  #   capabilities:
-  #     drop:
-  #     - ALL
-  #   allowPrivilegeEscalation: false
-  #   runAsNonRoot: true
-  #   runAsUser: 1000
+podSecurityContext:
+  operator:
+    runAsNonRoot: true
+    # runAsUser: 1000
+    # runAsGroup: 1000
+    # fsGroup: 1000
+  metricServer:
+    runAsNonRoot: true
+    # runAsUser: 1000
+    # runAsGroup: 1000
+    # fsGroup: 1000
 
 service:
   type: ClusterIP
@@ -145,7 +170,8 @@ nodeSelector: {}
 
 tolerations: []
 
-affinity: {}
+affinity:
+  {}
   # podAntiAffinity:
   #   requiredDuringSchedulingIgnoredDuringExecution:
   #   - labelSelector:
@@ -215,7 +241,8 @@ prometheus:
       enabled: false
       namespace:
       additionalLabels: {}
-      alerts: []
+      alerts:
+        []
         # - alert: KedaScalerErrors
         #   annotations:
         #     description: Keda scaledObject {{ $labels.scaledObject }} is experiencing errors with {{ $labels.scaler }} scaler
