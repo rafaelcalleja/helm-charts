@@ -1,5 +1,25 @@
 apiVersion: v1
 entries:
+  community-operator:
+  - apiVersion: v1
+    appVersion: 0.7.4
+    created: "2022-06-17T07:52:46.37243127Z"
+    description: MongoDB Kubernetes Community Operator
+    digest: 56f6690f65480297d8f71ca92ee6a9106aacc141c40d5d5761169ee914e38849
+    home: https://github.com/mongodb/mongodb-kubernetes-operator
+    icon: https://mongodb-images-new.s3.eu-west-1.amazonaws.com/leaf-green-dark.png
+    keywords:
+    - mongodb
+    - database
+    - nosql
+    kubeVersion: '>=1.16-0'
+    maintainers:
+    - email: support@mongodb.com
+      name: MongoDB
+    name: community-operator
+    urls:
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/community-operator-0.7.4/community-operator-0.7.4.tgz
+    version: 0.7.4
   keda:
   - apiVersion: v2
     appVersion: 2.7.1
