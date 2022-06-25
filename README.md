@@ -6,6 +6,7 @@ This repository contains [Helm](https://helm.sh) charts for various projects
 - [MysqlCluster](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/mysql-cluster)
 - [MongoDB Community](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/mongodb)
 - [Octant](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/octant)
+- [mongo-express](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/mongo-express)
 - [kube-prometheus-stack](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/kube-prometheus-stack)
 - [kuberhealthy](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/kuberhealthy)
 - [keda-add-ons-http](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/keda-add-ons-http)
