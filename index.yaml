@@ -223,6 +223,24 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/kuberhealthy-53/kuberhealthy-53.tgz
     version: "53"
+  mongo-express:
+  - apiVersion: v1
+    appVersion: 0.54.0
+    created: "2022-06-25T07:39:15.838901971Z"
+    description: Web-based MongoDB admin interface, written with Node.js and express
+    digest: 25d71fd75760c3ef54cdbd990025faa0f9ed74945a8f6362827a33f0ab01f9cf
+    home: https://github.com/mongo-express/mongo-express
+    icon: https://raw.githubusercontent.com/mongo-express/mongo-express/master/public/images/mongo-express-logo.png
+    maintainers:
+    - email: sebastien.prudhomme@gmail.com
+      name: sebastien-prudhomme
+    name: mongo-express
+    sources:
+    - https://github.com/mongo-express/mongo-express
+    - https://github.com/cowboysysop/charts/tree/master/charts/mongo-express
+    urls:
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/mongo-express-2.6.5/mongo-express-2.6.5.tgz
+    version: 2.6.5
   mysql-cluster:
   - apiVersion: v1
     appVersion: "1.0"
