@@ -20,6 +20,26 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/community-operator-0.7.4/community-operator-0.7.4.tgz
     version: 0.7.4
+  external-secrets:
+  - apiVersion: v1
+    appVersion: v0.5.7
+    created: "2022-06-30T04:40:09.286616607Z"
+    description: External secret management for Kubernetes
+    digest: e28978a3c77a39765980ff8889e0c2ac7c5f2a3aee6d92440950c114c9657195
+    home: https://github.com/external-secrets/external-secrets
+    icon: https://raw.githubusercontent.com/external-secrets/external-secrets/main/assets/eso-logo-large.png
+    keywords:
+    - kubernetes-external-secrets
+    - secrets
+    kubeVersion: '>= 1.19.0-0'
+    maintainers:
+    - email: kellinmcavoy@gmail.com
+      name: mcavoyk
+    name: external-secrets
+    type: application
+    urls:
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/external-secrets-0.5.7/external-secrets-0.5.7.tgz
+    version: 0.5.7
   keda:
   - apiVersion: v2
     appVersion: 2.7.1
