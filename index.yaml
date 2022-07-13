@@ -277,6 +277,26 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/mysql-cluster-0.3.0/mysql-cluster-0.3.0.tgz
     version: 0.3.0
+  mysql-operator:
+  - apiVersion: v1
+    appVersion: v0.6.2
+    created: "2022-07-13T07:32:19.33132133Z"
+    description: A helm chart for Bitpoke Operator for MySQL
+    digest: 70b34552b7c9b90720615f1a181806cd474e18fb76e7ac242cdd9c9ad7de5d18
+    home: https://www.bitpoke.io/mysql-operator/
+    keywords:
+    - mysql
+    - percona
+    - orchestrator
+    - bitpoke
+    - database
+    kubeVersion: '>= 1.19.0-0'
+    name: mysql-operator
+    sources:
+    - https://github.com/bitpoke/mysql-operator.git
+    urls:
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/mysql-operator-0.6.2/mysql-operator-0.6.2.tgz
+    version: 0.6.2
   octant:
   - apiVersion: v1
     appVersion: 0.16.2
