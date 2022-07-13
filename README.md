@@ -5,6 +5,7 @@ This repository contains [Helm](https://helm.sh) charts for various projects
 - [external-secrets](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/external-secrets)
 - [Osiris](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/osiris)
 - [MysqlCluster](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/mysql-cluster)
+- [MysqlOperator](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/mysql-operator)
 - [MongoDB Community](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/mongodb)
 - [Octant](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/octant)
 - [mongo-express](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/mongo-express)

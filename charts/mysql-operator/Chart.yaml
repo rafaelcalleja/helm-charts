@@ -1,0 +1,15 @@
+apiVersion: v1
+appVersion: v0.6.2
+description: A helm chart for Bitpoke Operator for MySQL
+home: https://www.bitpoke.io/mysql-operator/
+keywords:
+- mysql
+- percona
+- orchestrator
+- bitpoke
+- database
+kubeVersion: '>= 1.19.0-0'
+name: mysql-operator
+sources:
+- https://github.com/bitpoke/mysql-operator.git
+version: 0.6.2
