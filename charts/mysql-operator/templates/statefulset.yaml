@@ -11,7 +11,8 @@ spec:
   podManagementPolicy: Parallel
   selector:
     matchLabels:
-      {{- include "mysql-operator.selectorLabels" . | nindent 6 }}
+      app: {{ template "mysql-operator.name" . }}
+      release: {{ .Release.Name }}
   template:
     metadata:
       annotations:
@@ -21,6 +22,8 @@ spec:
         checksum/orchestrator-config: {{ include (print $.Template.BasePath "/orchestrator-config.yaml") . | sha256sum }}
         checksum/orchestrator-secret: {{ include (print $.Template.BasePath "/orchestrator-secret.yaml") . | sha256sum }}
       labels:
+        app: {{ template "mysql-operator.name" . }}
+        release: {{ .Release.Name }}
         {{- include "mysql-operator.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
