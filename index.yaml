@@ -408,4 +408,15 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/osiris-v0.0.4/osiris-v0.0.4.tgz
     version: v0.0.4
+  tekton:
+  - apiVersion: v1
+    created: "2022-09-21T13:45:51.12680367Z"
+    description: A Helm chart for Tekton Pipelines
+    digest: f5818b7d023a09869d39198e44934fc85dccfa27fa59df31f61ccb72ebd502aa
+    home: https://github.com/jenkins-x-charts/tekton/
+    icon: https://avatars2.githubusercontent.com/u/47602533
+    name: tekton
+    urls:
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/tekton-0.0.64/tekton-0.0.64.tgz
+    version: 0.0.64
 generated: "2020-12-16T15:54:54.394034413Z"
