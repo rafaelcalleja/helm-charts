@@ -1,0 +1,51 @@
+image:
+  upstreamtag: v0.11.3
+  kubeconfigwriter: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/kubeconfigwriter
+  credsinit: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/creds-init
+  gitinit: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/git-init
+  controller: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/controller
+  webhook: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/webhook
+  entrypoint: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/entrypoint
+  pullrequest: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/pullrequest-init
+  imagedigestexporter: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/imagedigestexporter
+  gcsfetcher: gcr.io/tekton-releases/github.com/tektoncd/pipeline/vendor/github.com/googlecloudplatform/cloud-builders/gcs-fetcher/cmd/gcs-fetcher
+auth:
+  git:
+    username:
+    password:
+    url: https://github.com
+  docker:
+    # if specified use the docker config.json style secret like this:
+    # https://github.com/tektoncd/pipeline/blob/master/docs/auth.md#configuring-docker-authentication-for-docker
+    configJson: ""
+
+    # otherwise use basic auth style secret
+    username:
+    password:
+    url: https://index.docker.io/v1/
+    # url: https://gcr.io
+    host: docker.io
+    email: jenkins-x@googlecloud.com
+
+controller:
+  enabled: true
+
+serviceaccount:
+  enabled: true
+  annotations: {}
+
+webhook:
+  enabled: true
+
+rbac:
+  cluster: true
+
+cluster:
+  resources:
+    create: true
+  crds:
+    create: true
+
+pvc:
+  size: 5Gi
+  storageClassName:
