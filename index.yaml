@@ -156,6 +156,39 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/keda-add-ons-http-0.2.0/keda-add-ons-http-0.2.0.tgz
     version: 0.2.0
+  keycloak:
+  - apiVersion: v1
+    appVersion: 11.0.2
+    created: "2022-11-18T12:46:44.002390022Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://raw.githubusercontent.com/Dokify/bitnami-charts/defb094c658024e4aa8245622dab202874880cbc/bitnami
+      version: 9.1.1
+    description: Open Source Identity and Access Management For Modern Applications and Services
+    digest: bb45ca2c055cdbff5e89796f2be45cf7336204565323b32d46e08f1e72764718
+    home: https://www.keycloak.org/
+    icon: https://www.keycloak.org/resources/images/keycloak_logo_480x108.png
+    keywords:
+    - sso
+    - idm
+    - openid connect
+    - saml
+    - kerberos
+    - ldap
+    maintainers:
+    - email: unguiculus@gmail.com
+      name: unguiculus
+    - email: thomas.darimont+github@gmail.com
+      name: thomasdarimont
+    name: keycloak
+    sources:
+    - https://github.com/codecentric/helm-charts
+    - https://github.com/jboss-dockerfiles/keycloak
+    - https://github.com/bitnami/charts/tree/master/bitnami/postgresql
+    urls:
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/keycloak-9.5.1/keycloak-9.5.1.tgz
+    version: 9.5.1
   kube-prometheus-stack:
   - annotations:
       artifacthub.io/links: |
