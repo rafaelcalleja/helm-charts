@@ -3,6 +3,7 @@
 This repository contains [Helm](https://helm.sh) charts for various projects.
 
 - [external-secrets](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/external-secrets)
+- [lighthouse](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/lighthouse)
 - [Osiris](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/osiris)
 - [MysqlCluster](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/mysql-cluster)
 - [MysqlOperator](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/mysql-operator)
