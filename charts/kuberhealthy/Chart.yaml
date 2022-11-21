@@ -28,4 +28,4 @@ name: kuberhealthy
 sources:
 - https://github.com/Comcast/kuberhealthy
 - https://github.com/Comcast/kuberhealthy/tree/master/deploy/helm/kuberhealthy
-version: "53"
+version: "53.1"
