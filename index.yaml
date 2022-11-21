@@ -311,6 +311,19 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/kuberhealthy-53/kuberhealthy-53.tgz
     version: "53"
+  lighthouse:
+  - apiVersion: v1
+    appVersion: 0.0.843
+    created: "2022-11-21T16:08:19.718439402Z"
+    description: |
+      This chart bootstraps installation of [Lighthouse](https://github.com/jenkins-x/lighthouse).
+    digest: b41f366af22af364f4b6b61901969e8754388c18b3b837677a0f1bed8ca499ba
+    home: https://github.com/jenkins-x/lighthouse
+    icon: https://raw.githubusercontent.com/jenkins-x/jenkins-x-website/master/images/logo/jenkinsx-icon-color.svg
+    name: lighthouse
+    urls:
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/lighthouse-0.1.843/lighthouse-0.1.843.tgz
+    version: 0.1.843
   mongo-express:
   - apiVersion: v1
     appVersion: 0.54.0
