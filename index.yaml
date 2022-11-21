@@ -314,6 +314,18 @@ entries:
   lighthouse:
   - apiVersion: v1
     appVersion: 0.0.843
+    created: "2022-11-21T15:44:46.838294437Z"
+    description: |
+      This chart bootstraps installation of [Lighthouse](https://github.com/jenkins-x/lighthouse).
+    digest: 7617e8f076d3d58dfcd46efb9a899bb1b9bd23a3e73a88bf68aba396ceb63a96
+    home: https://github.com/jenkins-x/lighthouse
+    icon: https://raw.githubusercontent.com/jenkins-x/jenkins-x-website/master/images/logo/jenkinsx-icon-color.svg
+    name: lighthouse
+    urls:
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/lighthouse-0.1.843/lighthouse-0.1.843.tgz
+    version: 0.1.843
+  - apiVersion: v1
+    appVersion: 0.0.843
     created: "2022-11-21T15:39:28.655255549Z"
     description: |
       This chart bootstraps installation of [Lighthouse](https://github.com/jenkins-x/lighthouse).
