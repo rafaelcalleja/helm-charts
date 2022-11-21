@@ -314,16 +314,16 @@ entries:
   lighthouse:
   - apiVersion: v1
     appVersion: 0.0.843
-    created: "2022-11-21T15:38:38.038065217Z"
+    created: "2022-11-21T15:39:28.655255549Z"
     description: |
       This chart bootstraps installation of [Lighthouse](https://github.com/jenkins-x/lighthouse).
-    digest: 5f084e8498020d9a3eeb2f628dcb2019c2a69aa842f5b7e6d5525e17f56d292e
+    digest: 9596a35ba7b7c7bf8ae4888e651774dd39e9f6b554e2b3e1667d9724eb35807d
     home: https://github.com/jenkins-x/lighthouse
     icon: https://raw.githubusercontent.com/jenkins-x/jenkins-x-website/master/images/logo/jenkinsx-icon-color.svg
     name: lighthouse
     urls:
-    - https://github.com/rafaelcalleja/helm-charts/releases/download/lighthouse-0.0.843/lighthouse-0.0.843.tgz
-    version: 0.0.843
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/lighthouse-0.0.843.1/lighthouse-0.0.843.1.tgz
+    version: 0.0.843.1
   mongo-express:
   - apiVersion: v1
     appVersion: 0.54.0
