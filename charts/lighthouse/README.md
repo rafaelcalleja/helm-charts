@@ -1,6 +1,6 @@
 # Lighthouse
 
-This chart bootstraps installation of [Lighthouse](https://github.com/jenkins-x/lighthouse).
+This chart bootstraps installation of [Lighthouse](https://github.com/jenkins-x/lighthouse)
 
 ## Installing
 
