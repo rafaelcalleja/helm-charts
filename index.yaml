@@ -27,6 +27,32 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/cert-manager-v0.11.2/cert-manager-v0.11.2.tgz
     version: v0.11.2
+  - apiVersion: v1
+    appVersion: v0.11.1
+    created: "2022-11-22T12:47:13.113436275Z"
+    dependencies:
+    - condition: cainjector.enabled
+      name: cainjector
+      repository: file://cainjector
+      version: v0.11.1
+    description: A Helm chart for cert-manager
+    digest: ad408902bbc515c2dfe2982a318fb2d3e8ad665a8f66537af269a11648eb6c3e
+    home: https://github.com/jetstack/cert-manager
+    icon: https://raw.githubusercontent.com/jetstack/cert-manager/master/logo/logo.png
+    keywords:
+    - cert-manager
+    - kube-lego
+    - letsencrypt
+    - tls
+    maintainers:
+    - email: james@jetstack.io
+      name: munnerz
+    name: cert-manager
+    sources:
+    - https://github.com/jetstack/cert-manager
+    urls:
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/cert-manager-v0.11.1/cert-manager-v0.11.1.tgz
+    version: v0.11.1
   community-operator:
   - apiVersion: v1
     appVersion: 0.7.4
@@ -709,4 +735,4 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/tekton-0.0.64/tekton-0.0.64.tgz
     version: 0.0.64
-generated: "2022-11-22T11:06:07.480353606Z"
+generated: "2022-11-22T12:47:13.113490579Z"
