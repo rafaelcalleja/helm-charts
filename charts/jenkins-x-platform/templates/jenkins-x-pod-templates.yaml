@@ -1,0 +1,142 @@
+{{- define "container" }}
+  {{- if ne "Jnlp" .ckey }}
+      - name: {{ .ckey | lower }}
+        image: {{ .cval.Image }}
+  {{- if .cval.Args }}
+        args:
+        {{- range $arg := splitList " " .cval.Args }}
+        - {{ $arg }}
+        {{- end }}
+  {{- end }}
+  {{- if .cval.Command }}
+        command:
+        {{- range $cmd := splitList " " .cval.Command }}
+        - {{ $cmd }}
+        {{- end }}
+  {{- end }}
+        workingDir: /home/jenkins
+        securityContext:
+          privileged: {{ default false .cval.Privileged }}
+  {{- if .cval.AlwaysPullImage }}
+        imagePullPolicy: Always
+  {{- end }}
+        tty: {{ default false .cval.Tty }}
+        env:
+        - name: DOCKER_REGISTRY
+          valueFrom:
+            configMapKeyRef:
+              name: jenkins-x-docker-registry
+              key: docker.registry
+  {{- if .globalenv.TILLER_NAMESPACE }}
+        - name: TILLER_NAMESPACE
+          value: {{ .globalenv.TILLER_NAMESPACE }}
+  {{- end }}
+  {{- range $ekey, $eval := .pval.EnvVars }}
+        - name: {{ $ekey }}
+          value: {{ $eval }}
+  {{- end }}
+        resources:
+          requests:
+            cpu: {{ .cval.RequestCpu }}
+            memory: {{ .cval.RequestMemory }}
+          limits:
+  {{- if .cval.LimitCpu }}
+            cpu: {{ .cval.LimitCpu }}
+  {{- end }}
+  {{- if .cval.LimitMemory }}
+            memory: {{ .cval.LimitMemory }}
+  {{- end }}
+        volumeMounts:
+          - mountPath: /home/jenkins
+            name: workspace-volume
+  {{- if .agent.DockerHostPath }}
+          - name: docker-daemon
+            mountPath: {{ .agent.DockerMountPath }}
+  {{- end }}
+  {{- range $index, $volume := .pval.volumes }}
+          - name: volume-{{ $index }}
+            mountPath: {{ $volume.mountPath }}
+  {{- end }}
+  {{- end }}
+{{- end }}
+
+{{- if .Values.jenkins.Agent.Enabled }}
+{{- $agent := .Values.jenkins.Agent -}}
+{{- $globalenv := .Values.jenkins.Servers.Global.EnvVars -}}
+{{- range $pkey, $pval := .Values.jenkins.Agent.PodTemplates }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "jenkins-x-pod-template-{{ $pval.Name }}"
+  labels:
+    jenkins.io/kind: podTemplate
+data:
+  pod: |-
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: {{ $pval.Label }}
+      labels:
+        jenkins.io/kind: build-pod
+      annotations:
+        jenkins-x.io/devpodPorts: {{ $pval.DevPodPorts }}
+      {{- if $pval.annotations }}
+      {{- range $key, $value := $pval.annotations }}
+        {{ $key }}: {{ $value | quote }}
+      {{- end }}
+      {{- end }}
+    spec:
+{{- if $pval.ServiceAccount }}
+      serviceAccount: {{ $pval.ServiceAccount }}
+{{- end }}
+      nodeSelector:
+{{- range $key, $value := $pval.NodeSelector }}
+        {{- $key }}: {{ $value }}
+{{- end }}
+{{- if $pval.Tolerations }}
+      tolerations:
+{{ toYaml $pval.Tolerations | indent 6 }}
+{{- end }}
+      volumes:
+      - name: workspace-volume
+        emptyDir: {}
+{{- if $agent.DockerHostPath }}
+      - name: docker-daemon
+        hostPath:
+          path: {{ $agent.DockerHostPath }}
+{{- end }}
+{{- range $index, $volume := $pval.volumes }}
+      - name: volume-{{ $index }}
+  {{- if eq "Secret" $volume.type }}
+        secret:
+          secretName: {{ $volume.secretName }}
+  {{- end }}
+  {{- if eq "HostPath" $volume.type }}
+        hostPath:
+          path: {{ $volume.hostPath }}
+  {{- end }}
+  {{- if eq "PersistentVolumeClaim" $volume.type }}
+        claimName:
+          path: {{ $volume.claimName }}
+        readOnly
+          readOnly: {{ default false $volume.readOnly }}
+  {{- end }}
+{{- end }}
+      containers:
+  {{- range $ckey, $cval := $pval.Containers }}
+  {{- if $cval.IsBuilder }}
+  {{- include "container" (dict "agent" $agent "globalenv" $globalenv "pval" $pval "ckey" $ckey "cval" $cval) }}
+  {{- end }}
+  {{- end }}
+  {{- range $ckey, $cval := $pval.Containers }}
+  {{- if not $cval.IsBuilder }}
+  {{- include "container" (dict "agent" $agent "globalenv" $globalenv "pval" $pval "ckey" $ckey "cval" $cval) }}
+  {{- end }}
+  {{- end }}
+{{- if $pval.ImagePullSecret }}
+      imagePullSecrets:
+        - name: {{ $pval.ImagePullSecret }}
+{{- end }}
+{{- end }}
+{{- end -}}

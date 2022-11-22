@@ -1,0 +1,12 @@
+apiVersion: v1
+name: jenkins-x-platform
+home: https://jenkins-x.github.io/jenkins-x-website/
+version: 2.0.2412
+description: Jenkins X next gen cloud CI / CD platform for Kubernetes
+maintainers:
+- name: Jenkins X Team
+  email: jenkins-x@googlegroups.com
+icon: https://jenkins-x.github.io/jenkins-x-website/img/profile.png
+sources:
+- https://github.com/jenkins-x/jenkins-x-platform
+- https://github.com/kubernetes/charts
