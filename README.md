@@ -2,6 +2,7 @@
 
 This repository contains [Helm](https://helm.sh) charts for various projects.
 
+- [cert-manager](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/cert-manager)
 - [external-secrets](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/external-secrets)
 - [jx](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/jx)
 - [jenkins-x-platform](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/jenkins-x-platform)
