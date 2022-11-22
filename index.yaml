@@ -40,6 +40,77 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/external-secrets-0.5.7/external-secrets-0.5.7.tgz
     version: 0.5.7
+  jenkins-x-platform:
+  - apiVersion: v1
+    created: "2022-11-22T10:23:45.436750637Z"
+    dependencies:
+    - condition: jenkins.enabled
+      name: jenkins
+      repository: https://charts.helm.sh/stable
+      version: 0.40.0
+    - alias: expose
+      condition: expose.enabled
+      name: exposecontroller
+      repository: https://jenkins-x-charts.github.io/v2
+      version: 2.3.111
+    - alias: cleanup
+      condition: cleanup.enabled
+      name: exposecontroller
+      repository: https://jenkins-x-charts.github.io/v2
+      version: 2.3.111
+    - condition: chartmuseum.enabled
+      name: chartmuseum
+      repository: https://jenkins-x-charts.github.io/v2
+      version: 1.1.7
+    - condition: nexus.enabled
+      name: nexus
+      repository: https://jenkins-x-charts.github.io/v2
+      version: 0.1.37
+    - condition: docker-registry.enabled
+      name: docker-registry
+      repository: https://charts.helm.sh/stable
+      version: 1.9.3
+    - alias: gcactivities
+      name: jx
+      repository: https://rafaelcalleja.github.io/helm-charts/
+      version: 2.1.155
+    - alias: gcpods
+      name: jx
+      repository: https://rafaelcalleja.github.io/helm-charts/
+      version: 2.1.155
+    - alias: gcpreviews
+      name: jx
+      repository: https://rafaelcalleja.github.io/helm-charts/
+      version: 2.1.155
+    - alias: controllerbuild
+      condition: controllerbuild.enabled
+      name: jx
+      repository: https://jenkins-x-charts.github.io/v2
+      version: 2.1.155
+    - alias: controllerrole
+      condition: controllerrole.enabled
+      name: jx
+      repository: https://jenkins-x-charts.github.io/v2
+      version: 2.1.155
+    - alias: postinstalljob
+      condition: postinstalljob.enabled
+      name: jx
+      repository: https://jenkins-x-charts.github.io/v2
+      version: 2.1.155
+    description: Jenkins X next gen cloud CI / CD platform for Kubernetes
+    digest: 9992b98551550abf52ce912e527b0544c4de4193a291982472533653d2551bb2
+    home: https://jenkins-x.github.io/jenkins-x-website/
+    icon: https://jenkins-x.github.io/jenkins-x-website/img/profile.png
+    maintainers:
+    - email: jenkins-x@googlegroups.com
+      name: Jenkins X Team
+    name: jenkins-x-platform
+    sources:
+    - https://github.com/jenkins-x/jenkins-x-platform
+    - https://github.com/kubernetes/charts
+    urls:
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/jenkins-x-platform-2.0.2412/jenkins-x-platform-2.0.2412.tgz
+    version: 2.0.2412
   jx:
   - apiVersion: v1
     appVersion: 2.1.155
@@ -535,4 +606,4 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/tekton-0.0.64/tekton-0.0.64.tgz
     version: 0.0.64
-generated: "2022-11-22T10:22:21.155821852Z"
+generated: "2022-11-22T10:23:45.436787839Z"
