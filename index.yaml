@@ -40,6 +40,23 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/external-secrets-0.5.7/external-secrets-0.5.7.tgz
     version: 0.5.7
+  jx:
+  - apiVersion: v1
+    appVersion: 2.1.155
+    created: "2022-11-22T10:22:20.974685854Z"
+    description: Jenkins X next gen cloud CI / CD platform for Kubernetes
+    digest: 99396f2295070acb50dc96f671f2fd9d4cb655e175af0845ef71bef558d64b22
+    home: https://jenkins-x.io/
+    icon: https://jenkins-x.github.io/jenkins-x-website/img/profile.png
+    maintainers:
+    - email: jenkins-x@googlegroups.com
+      name: Jenkins X Team
+    name: jx
+    sources:
+    - https://github.com/jenkins-x/jx
+    urls:
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/jx-2.1.155/jx-2.1.155.tgz
+    version: 2.1.155
   keda:
   - apiVersion: v2
     appVersion: 2.7.1
@@ -165,7 +182,8 @@ entries:
       name: postgresql
       repository: https://raw.githubusercontent.com/Dokify/bitnami-charts/defb094c658024e4aa8245622dab202874880cbc/bitnami
       version: 9.1.1
-    description: Open Source Identity and Access Management For Modern Applications and Services
+    description: Open Source Identity and Access Management For Modern Applications
+      and Services
     digest: bb45ca2c055cdbff5e89796f2be45cf7336204565323b32d46e08f1e72764718
     home: https://www.keycloak.org/
     icon: https://www.keycloak.org/resources/images/keycloak_logo_480x108.png
@@ -213,7 +231,10 @@ entries:
       name: grafana
       repository: https://grafana.github.io/helm-charts
       version: 6.4.2
-    description: kube-prometheus-stack collects Kubernetes manifests, Grafana dashboards, and Prometheus rules combined with documentation and scripts to provide easy to operate end-to-end Kubernetes cluster monitoring with Prometheus using the Prometheus Operator.
+    description: kube-prometheus-stack collects Kubernetes manifests, Grafana dashboards,
+      and Prometheus rules combined with documentation and scripts to provide easy
+      to operate end-to-end Kubernetes cluster monitoring with Prometheus using the
+      Prometheus Operator.
     digest: 39b2b77c4ea549984183c31c51662e2e9286483042c5051e69b00f8aa3949640
     home: https://github.com/prometheus-operator/kube-prometheus
     icon: https://raw.githubusercontent.com/prometheus/prometheus.github.io/master/assets/prometheus_logo-cb55bb5c346.png
@@ -315,8 +336,7 @@ entries:
   - apiVersion: v1
     appVersion: 0.0.843
     created: "2022-11-21T16:08:19.718439402Z"
-    description: |
-      This chart bootstraps installation of [Lighthouse](https://github.com/jenkins-x/lighthouse).
+    description: 'This chart bootstraps installation of [Lighthouse](https://github.com/jenkins-x/lighthouse). '
     digest: b41f366af22af364f4b6b61901969e8754388c18b3b837677a0f1bed8ca499ba
     home: https://github.com/jenkins-x/lighthouse
     icon: https://raw.githubusercontent.com/jenkins-x/jenkins-x-website/master/images/logo/jenkinsx-icon-color.svg
@@ -515,4 +535,4 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/tekton-0.0.64/tekton-0.0.64.tgz
     version: 0.0.64
-generated: "2020-12-16T15:54:54.394034413Z"
+generated: "2022-11-22T10:22:21.155821852Z"
