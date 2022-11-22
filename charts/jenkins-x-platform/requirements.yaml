@@ -40,15 +40,15 @@ dependencies:
 - alias: controllerbuild
   condition: controllerbuild.enabled
   name: jx
-  repository: https://jenkins-x-charts.github.io/v2
+  repository: https://rafaelcalleja.github.io/helm-charts/
   version: 2.1.155
 - alias: controllerrole
   condition: controllerrole.enabled
   name: jx
-  repository: https://jenkins-x-charts.github.io/v2
+  repository: https://rafaelcalleja.github.io/helm-charts/
   version: 2.1.155
 - alias: postinstalljob
   condition: postinstalljob.enabled
   name: jx
-  repository: https://jenkins-x-charts.github.io/v2
+  repository: https://rafaelcalleja.github.io/helm-charts/
   version: 2.1.155
