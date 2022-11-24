@@ -73,6 +73,23 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/community-operator-0.7.4/community-operator-0.7.4.tgz
     version: 0.7.4
+  elasticsearch:
+  - apiVersion: v1
+    appVersion: 7.12.1
+    created: "2022-11-24T10:57:25.698627928Z"
+    description: Official Elastic helm chart for Elasticsearch
+    digest: e743b5682cfc37d5ffe54ebadba88b1327688c5e75cdccfe720f19abf2880009
+    home: https://github.com/elastic/helm-charts
+    icon: https://helm.elastic.co/icons/elasticsearch.png
+    maintainers:
+    - email: helm-charts@elastic.co
+      name: Elastic
+    name: elasticsearch
+    sources:
+    - https://github.com/elastic/elasticsearch
+    urls:
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/elasticsearch-7.12.1/elasticsearch-7.12.1.tgz
+    version: 7.12.1
   external-secrets:
   - apiVersion: v1
     appVersion: v0.5.7
@@ -735,4 +752,4 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/tekton-0.0.64/tekton-0.0.64.tgz
     version: 0.0.64
-generated: "2022-11-22T12:47:13.113490579Z"
+generated: "2022-11-24T10:57:25.698663028Z"
