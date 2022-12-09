@@ -110,6 +110,26 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/external-secrets-0.5.7/external-secrets-0.5.7.tgz
     version: 0.5.7
+  fluentd:
+  - apiVersion: v1
+    appVersion: v1.14.6
+    created: "2022-12-09T08:19:04.421936788Z"
+    description: A Helm chart for Kubernetes
+    digest: 881d842a740159291e2221e9313d1984ef6420bf2d7d28193678365a1ff086f6
+    home: https://www.fluentd.org/
+    icon: https://www.fluentd.org/images/miscellany/fluentd-logo_2x.png
+    maintainers:
+    - email: eduardo@treasure-data.com
+      name: edsiper
+    - email: diogo.filipe.tomas.guerra@cern.ch
+      name: dioguerra
+    name: fluentd
+    sources:
+    - https://github.com/fluent/fluentd/
+    - https://github.com/fluent/fluentd-kubernetes-daemonset
+    urls:
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/fluentd-0.3.9/fluentd-0.3.9.tgz
+    version: 0.3.9
   jenkins-x-platform:
   - apiVersion: v1
     created: "2022-11-22T10:23:45.436750637Z"
@@ -752,4 +772,4 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/tekton-0.0.64/tekton-0.0.64.tgz
     version: 0.0.64
-generated: "2022-11-24T10:57:25.698663028Z"
+generated: "2022-12-09T08:19:04.421971188Z"
