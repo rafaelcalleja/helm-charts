@@ -50,6 +50,7 @@ serviceAccount:
   name: octant-readonly-sa
 
 clusterRole:
+  create: true
   # Override the entire set of cluster roles, if not specified a default set of read-only-everything rules will be created
   rules: ~
   # Add additional rules to the default read-only-everything, this is ignored if clusterRole.rules is provided.
