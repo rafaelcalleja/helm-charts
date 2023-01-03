@@ -391,6 +391,20 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/keycloak-9.5.1/keycloak-9.5.1.tgz
     version: 9.5.1
+  kube-oidc-proxy:
+  - apiVersion: v1
+    appVersion: v0.3.0
+    created: "2023-01-03T08:05:30.52513133Z"
+    description: A Helm chart for kube-oidc-proxy
+    digest: 6a9575548a3dd5c2c77bf44851ad3381e4eaf6261d35236b959fe2a10080a3a1
+    home: https://github.com/jetstack/kube-oidc-proxy
+    maintainers:
+    - name: mhrabovcin
+    - name: joshvanl
+    name: kube-oidc-proxy
+    urls:
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/kube-oidc-proxy-0.3.1/kube-oidc-proxy-0.3.1.tgz
+    version: 0.3.1
   kube-prometheus-stack:
   - annotations:
       artifacthub.io/links: |
@@ -787,4 +801,4 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/tekton-0.0.64/tekton-0.0.64.tgz
     version: 0.0.64
-generated: "2022-12-29T14:41:56.637958172Z"
+generated: "2023-01-03T08:05:30.52517213Z"
