@@ -8,6 +8,7 @@ This repository contains [Helm](https://helm.sh) charts for various projects.
 - [fluentd](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/fluentd)
 - [jx](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/jx)
 - [jenkins-x-platform](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/jenkins-x-platform)
+- [kube-oidc-proxy](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/kube-oidc-proxy)
 - [lighthouse](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/lighthouse)
 - [Osiris](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/osiris)
 - [MysqlCluster](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/mysql-cluster)
