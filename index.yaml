@@ -598,6 +598,27 @@ entries:
   mongo-express:
   - apiVersion: v1
     appVersion: 0.54.0
+    created: "2023-02-01T14:46:02.815951929Z"
+    dependencies:
+    - name: common
+      repository: https://dokify.github.io/helm-charts
+      version: 1.10.4
+    description: Web-based MongoDB admin interface, written with Node.js and express
+    digest: 6445554fc826e868b157df07475a76c81479a731f3e3395a01ac9bbef6218cd8
+    home: https://github.com/mongo-express/mongo-express
+    icon: https://raw.githubusercontent.com/mongo-express/mongo-express/master/public/images/mongo-express-logo.png
+    maintainers:
+    - email: sebastien.prudhomme@gmail.com
+      name: sebastien-prudhomme
+    name: mongo-express
+    sources:
+    - https://github.com/mongo-express/mongo-express
+    - https://github.com/cowboysysop/charts/tree/master/charts/mongo-express
+    urls:
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/mongo-express-2.6.6/mongo-express-2.6.6.tgz
+    version: 2.6.6
+  - apiVersion: v1
+    appVersion: 0.54.0
     created: "2022-06-25T07:39:15.838901971Z"
     description: Web-based MongoDB admin interface, written with Node.js and express
     digest: 25d71fd75760c3ef54cdbd990025faa0f9ed74945a8f6362827a33f0ab01f9cf
@@ -801,4 +822,4 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/tekton-0.0.64/tekton-0.0.64.tgz
     version: 0.0.64
-generated: "2023-01-03T08:05:30.52517213Z"
+generated: "2023-02-01T14:46:02.815988929Z"
