@@ -1,4 +1,4 @@
 dependencies:
   - name: common
     repository: https://dokify.github.io/helm-charts
-    version: 1.10.4
+    version: 2.2.1
