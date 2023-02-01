@@ -1,4 +1,4 @@
 dependencies:
   - name: common
-    repository: https://dokify.github.io/helm-charts
-    version: 2.2.1
+    repository: https://charts.bitnami.com/bitnami
+    version: 0.x.x
