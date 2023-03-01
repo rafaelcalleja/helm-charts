@@ -514,6 +514,37 @@ entries:
     version: 13.10.0
   kuberhealthy:
   - apiVersion: v1
+    appVersion: v2.7.1
+    created: "2023-03-01T09:05:03.816194471Z"
+    description: An operator for synthetic test and monitoring. Works great with Prometheus.
+    digest: 010e60ac3bf92a15fcc41bb7879e118b38ea736d62594c4703ee8aae80a44f74
+    home: https://kuberhealthy.github.io/kuberhealthy/
+    icon: https://raw.githubusercontent.com/kuberhealthy/kuberhealthy/master/images/logo-square.png
+    keywords:
+    - kuberhealthy
+    - kubernetes
+    - operator
+    - monitoring
+    - synthetic
+    - testing
+    - comcast
+    - health
+    - prometheus
+    maintainers:
+    - email: ericgreer@gmail.com
+      name: integrii
+    - email: jonathan_phan@comcast.com
+      name: jonnydawg
+    - email: joshulyne_park@comcast.com
+      name: joshulyne
+    name: kuberhealthy
+    sources:
+    - https://github.com/kuberhealthy/kuberhealthy
+    - https://github.com/kuberhealthy/kuberhealthy/tree/master/deploy/helm/kuberhealthy
+    urls:
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/kuberhealthy-90/kuberhealthy-90.tgz
+    version: "90"
+  - apiVersion: v1
     appVersion: v2.4.0
     created: "2022-11-21T12:57:20.981330225Z"
     description: An operator for synthetic test and monitoring. Works great with Prometheus.
@@ -864,4 +895,4 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/tekton-0.0.64/tekton-0.0.64.tgz
     version: 0.0.64
-generated: "2023-02-01T15:16:48.007820659Z"
+generated: "2023-03-01T09:05:03.816233571Z"
