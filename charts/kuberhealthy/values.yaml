@@ -3,33 +3,57 @@
 # Declare variables to be passed into your templates.
 
 checkReaper:
-  jobCleanupDuration: 15m # the maximum age of khjobs before being reaped
-  maxCheckPods: 4 # the maximum number of check pods in Completed state before being reaped
+  logLevel: error
+  maxKHJobAge: 15m # Maximum age of the khjob resource before being reaped. Valid time units: "ns", "us" (or "µs"), "ms", "s", "m", "h"
+  maxCheckPodAge: 72h # Maximum age of khcheck/khjob pods before being reaped. Valid time units: "ns", "us" (or "µs"), "ms", "s", "m", "h"
+  maxCompletedPodCount: 4 # Maximum number of khcheck/khjob pods in Completed state before being reaped. If not set or set to 0, no completed khjob/khcheck pod will remain.
+  maxErrorPodCount: 4 # Maximum number of khcheck/khjob pods in Error state before being reaped. If not set or set to 0, no completed khjob/khcheck pod will remain.
 
 prometheus:
   enabled: false
   name: "prometheus"
-  release: prometheus-operator
-  additionalLabels: {}
-    #- env: "dev"
-    #  app: "appName"
+
+  grafanaDashboard:
+    enabled: false
+    label: grafana_dashboard
+    labelValue: "1"
+    # namespace: "" # Alternative namespace to use for grafana dashboard.
 
   serviceMonitor:
     enabled: false
+    release: prometheus-operator
+    additionalLabels: {}
+      # env: "dev"
+      # mycustomlabel: "value"
     endpoints:
       interval: 15s
       bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+    namespace: kuberhealthy # prometheus operator must be allowed to scrape serviceMonitor metrics from kuberhealthy namespace or set to namespace of prometheus operator
 
-  enableAlerting: false
+  prometheusRule:
+    enabled: false
+    release: prometheus-operator
+    additionalLabels: {}
+      # env: "dev"
+      # mycustomlabel: "value"
+    namespace: kuberhealthy
 
 # imageRegistry can be used to globally override where check images are pulled from. Individual checks can be overridden below.
 # By default if no overrides are specified, all images are pulled from Docker Hub.  Do not include a trailing '/'.
-imageRegistry: {}
+imageRegistry: ""
+
+# Global imagePullSecrets setting for all images.
+# imagePullSecrets:
+# - name: my-secret-name
+
+# imageURL allows you to override all other nonsense and just specify the full image URL you want to pull
+#imageURL: docker.io/kuberhealthy/kuberhealthy:v1.6.0
 
 image:
-  registry: kuberhealthy
-  repository: kuberhealthy
-  tag: v2.4.0
+  registry: docker.io
+  repository: kuberhealthy/kuberhealthy
+  # Leave empty to use .Chart.AppVersion
+  tag:
 
 resources:
   requests:
@@ -62,11 +86,17 @@ deployment:
   #   operator: "Equal"
   #   value: "value"
   #   effect: "NoSchedule"
-  env: {}
+  env:
+    CHECK_REAPER_RUN_INTERVAL: "30s" # Interval for how often check pods should get reaped. Default is 30s
   command:
   - /app/kuberhealthy
   # args:
   # priorityClassName:
+  affinity: {}
+  ## Acceptable values for podAntiAffinity:
+  ## soft: specifies preferences that the scheduler will try to enforce but will not guarantee (Default)
+  ## hard: specifies rules that must be met for a pod to be scheduled onto a node
+  podAntiAffinity: "soft"
 
 # When enabled equals to true, runAsUser and fsGroup will be
 # included to all khchecks as specified below.
@@ -103,10 +133,10 @@ check:
     runInterval: 15m
     timeout: 12m
     image:
-      registry: kuberhealthy
-      repository: daemonset-check
-      tag: v3.2.5
-    extraEnvs:
+      registry: docker.io
+      repository: kuberhealthy/daemonset-check
+      tag: v3.3.0
+    extraEnvs: {}
     nodeSelector: {}
     tolerations:
     #- key: "key"
@@ -122,9 +152,9 @@ check:
     runInterval: 10m
     timeout: 15m
     image:
-      registry: kuberhealthy
-      repository: deployment-check
-      tag: v1.8.1
+      registry: docker.io
+      repository: kuberhealthy/deployment-check
+      tag: v1.9.0
     extraEnvs:
       CHECK_DEPLOYMENT_REPLICAS: "4"
       CHECK_DEPLOYMENT_ROLLING_UPDATE: "true"
@@ -146,9 +176,9 @@ check:
     runInterval: 2m
     timeout: 15m
     image:
-      registry: kuberhealthy
-      repository: dns-resolution-check
-      tag: v1.4.2
+      registry: docker.io
+      repository: kuberhealthy/dns-resolution-check
+      tag: v1.5.0
     extraEnvs:
       HOSTNAME: "kubernetes.default"
     nodeSelector: {}
@@ -166,9 +196,9 @@ check:
     runInterval: 2m
     timeout: 15m
     image:
-      registry: kuberhealthy
-      repository: dns-resolution-check
-      tag: v1.4.3
+      registry: docker.io
+      repository: kuberhealthy/dns-resolution-check
+      tag: v1.5.0
     extraEnvs:
       HOSTNAME: "google.com"
     nodeSelector: {}
@@ -186,9 +216,10 @@ check:
     runInterval: 5m
     timeout: 10m
     image:
-      registry: kuberhealthy
-      repository: pod-restarts-check
-      tag: v2.3.3
+      registry: docker.io
+      repository: kuberhealthy/pod-restarts-check
+      tag: v2.5.0
+    allNamespaces: false
     extraEnvs:
       MAX_FAILURES_ALLOWED: "10"
     nodeSelector: {}
@@ -206,11 +237,11 @@ check:
     runInterval: 5m
     timeout: 15m
     image:
-      registry: kuberhealthy
-      repository: pod-status-check
-      tag: v1.2.4
+      registry: docker.io
+      repository: kuberhealthy/pod-status-check
+      tag: v1.3.0
     allNamespaces: false
-    extraEnvs:
+    extraEnvs: {}
     nodeSelector: {}
     tolerations: []
     #- key: "key"
@@ -232,8 +263,8 @@ check:
     runInterval: 5m
     timeout: 10m
     image:
-      registry: chrishirsch
-      repository: kuberhealthy-storage-check
+      registry: docker.io
+      repository: chrishirsch/kuberhealthy-storage-check
       tag: v0.0.1
     extraEnvs:
       CHECK_STORAGE_IMAGE: bitnami/nginx:1.19
@@ -253,9 +284,9 @@ check:
     runInterval: 30m
     timeout: 10m
     image:
-      registry: kuberhealthy
-      repository: network-connection-check
-      tag: v0.1.3
+      registry: docker.io
+      repository: kuberhealthy/network-connection-check
+      tag: v0.2.0
     extraEnvs:
       CONNECTION_TARGET: "tcp://github.com:443"
     nodeSelector: {}

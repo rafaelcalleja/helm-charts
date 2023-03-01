@@ -1,10 +1,10 @@
-<center><img src="https://github.com/Comcast/kuberhealthy/blob/master/images/kuberhealthy.png?raw=true"></center><br />
+<center><img src="https://github.com/kuberhealthy/kuberhealthy/blob/master/images/kuberhealthy.png?raw=true"></center><br />
 
 Easy synthetic testing for [Kubernetes](https://kubernetes.io) clusters.  Supplements other solutions like [Prometheus](https://prometheus.io/) nicely.
 
 ## What is Kuberhealthy?
 
-Kuberhealthy performs stynthetic tests from within Kubernetes clusters in order to catch issues that would otherwise go unnoticed.  Instead of trying to identify all the things that could potentially go wrong, Kuberhealthy replicates real workflow and watches carefully for the expected Kubernetes behavior to occur.  Kuberhealthy serves both a JSON status page and a [Prometheus](https://prometheus.io/) metrics endpoint for integration into your choice of alerting solution.  More checks will be added in future versions to better cover [service provisioning](https://github.com/Comcast/kuberhealthy/issues/11), [DNS resolution](https://github.com/Comcast/kuberhealthy/issues/16), [disk provisioning](https://github.com/Comcast/kuberhealthy/issues/9), and more.
+Kuberhealthy performs synthetic tests from within Kubernetes clusters in order to catch issues that would otherwise go unnoticed.  Instead of trying to identify all the things that could potentially go wrong, Kuberhealthy replicates real workflow and watches carefully for the expected Kubernetes behavior to occur.  Kuberhealthy serves both a JSON status page and a [Prometheus](https://prometheus.io/) metrics endpoint for integration into your choice of alerting solution.  More checks will be added in future versions to better cover [service provisioning](https://github.com/kuberhealthy/kuberhealthy/issues/11), [DNS resolution](https://github.com/kuberhealthy/kuberhealthy/issues/16), [disk provisioning](https://github.com/kuberhealthy/kuberhealthy/issues/9), and more.
 
 Some examples of errors Kuberhealthy has detected in production:
 
@@ -28,14 +28,21 @@ It is possible to configure Kuberhealthy's Prometheus integration with Helm vari
 
 ```
 prometheus:
-  enabled: true # do we deploy a ServiceMonitor spec?
+  enabled: true # do we deploy a ServiceMonitor or PrometheusRule spec?
   name: "prometheus" # the name of the Prometheus deployment in your environment.
   serviceMonitor:
-    enabled: false # use a ServiceMonitor configuration, for if using Prometheus Operator
+    enabled: false # create a ServiceMonitor resource, when using Prometheus Operator (f.e. kube-prometheus-stack)
+    release: prometheus-stack
+    additionalLabels:
+      env: "dev"
     endpoints: # Endpoint specification
       interval: 15s
       bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
-  enableAlerting: true # enable default Kuberhealthy alerts configuration
+  prometheusRule:
+    enabled: true # create a PrometheusRule resource, when using Prometheus Operator (f.e. kube-prometheus-stack)
+    release: prometheus-stack
+    additionalLabels:
+      env: "dev"
 app:
   name: "kuberhealthy" # what to name the kuberhealthy deployment
 image:
@@ -65,7 +72,7 @@ deployment:
   podAnnotations: {} # Annotations to be added to pods created by the deployment
   command:
   - /app/kuberhealthy
-  # use this to override location of the test-image, see: https://github.com/Comcast/kuberhealthy/blob/master/docs/FLAGS.md
+  # use this to override location of the test-image, see: https://github.com/kuberhealthy/kuberhealthy/blob/master/docs/FLAGS.md
   # args:
   # - -dsPauseContainerImageOverride
   # - your-repo/google_containers/pause:0.8.0
@@ -79,4 +86,4 @@ securityContext: # default container security context
 
 For more details, see the [Kuberhealthy web site](https://comcast.github.io/kuberhealthy/).
 
-To report a bug, see the [Kuberhealthy project issues](https://github.com/Comcast/kuberhealthy/issues).
+To report a bug, see the [Kuberhealthy project issues](https://github.com/kuberhealthy/kuberhealthy/issues).

@@ -8,16 +8,18 @@ Kuberhealthy has been installed to your cluster!
 	Tolerates Masters: {{ .Values.tolerations.master }}
 {{- if .Values.prometheus.enabled -}}
 	Prometheus Enabled: {{ .Values.prometheus.enabled }}
-	Prometheus Alerting: {{ .Values.prometheus.enableAlerting }}
+	Prometheus ServiceMonitor created: {{ .Values.prometheus.serviceMonitor.enabled }}
+	Prometheus Rule created: {{ .Values.prometheus.prometheusRule.enabled }}
 {{- end -}}
 
 If you are using Prometheus alert manager for your alerts, Kuberhealthy should
-be good to go.  If you are going to manually scrape Kuberhealthy's status JSON
-endpoint, you now need to expose Kuberhealthy to your scraper by editing the
+be good to go.  If you are going to manually scrape Kuberhealthy's status JSON 
+endpoint, you now need to expose Kuberhealthy to your scraper by editing the 
 service definition.  You can edit the service like this:
 
     `kubectl -n kuberhealthy edit service kuberhealthy`
 
 Please remember that changing the service type to LoadBalancer may expose
-Kuberhealthy to the internet, which could cause error messages shown by
+Kuberhealthy to the internet, which could cause error messages shown by 
 Kuberhealthy to be exposed to the public internet.
+
