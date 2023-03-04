@@ -915,6 +915,30 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/osiris-v0.0.4/osiris-v0.0.4.tgz
     version: v0.0.4
+  redis-operator:
+  - apiVersion: v1
+    appVersion: 0.14.0
+    created: "2023-03-04T08:19:41.81995931Z"
+    description: Provides easy redis setup definitions for Kubernetes services, and
+      deployment.
+    digest: b4abafa38e68be6ce931c3ce7b833833b6228dc98e1b0c21ed1beb11eb3dc4c7
+    home: https://github.com/OT-CONTAINER-KIT/redis-operator
+    icon: https://github.com/OT-CONTAINER-KIT/redis-operator/raw/master/static/redis-operator-logo.svg
+    keywords:
+    - operator
+    - redis
+    - opstree
+    - kubernetes
+    - openshift
+    maintainers:
+    - name: iamabhishek-dubey
+    - name: sandy724
+    name: redis-operator
+    sources:
+    - https://github.com/OT-CONTAINER-KIT/redis-operator
+    urls:
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/redis-operator-0.14.3/redis-operator-0.14.3.tgz
+    version: 0.14.3
   tekton:
   - apiVersion: v1
     created: "2022-09-21T13:45:51.12680367Z"
@@ -926,4 +950,4 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/tekton-0.0.64/tekton-0.0.64.tgz
     version: 0.0.64
-generated: "2023-03-01T10:06:24.744124696Z"
+generated: "2023-03-04T08:19:41.820132408Z"
