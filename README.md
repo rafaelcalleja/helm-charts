@@ -11,6 +11,7 @@ This repository contains [Helm](https://helm.sh) charts for various projects.
 - [kube-oidc-proxy](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/kube-oidc-proxy)
 - [lighthouse](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/lighthouse)
 - [Osiris](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/osiris)
+- [proxysql](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/proxysql)
 - [MysqlCluster](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/mysql-cluster)
 - [MysqlOperator](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/mysql-operator)
 - [MongoDB Community](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/mongodb)
