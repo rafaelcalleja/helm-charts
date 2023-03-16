@@ -7,7 +7,7 @@ metadata:
     {{- include "proxysql.labels" . | nindent 4 }}
   {{- if .Values.annotations| default false }}
   annotations:
-  {{- tpl (toYaml .Values.annotations) . | trim | indent 4 }}
+  {{ tpl (toYaml .Values.annotations) . | trim | indent 4 }}
   {{- end }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
