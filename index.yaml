@@ -757,6 +757,25 @@ entries:
   mysql-operator:
   - apiVersion: v1
     appVersion: v0.6.3
+    created: "2023-03-17T11:43:27.300119335Z"
+    description: A helm chart for Bitpoke Operator for MySQL
+    digest: 756f2062632b16262fe6ed3644e374fb8cb3c78caafa20b8ffc51621edb8c0b1
+    home: https://www.bitpoke.io/mysql-operator/
+    keywords:
+    - mysql
+    - percona
+    - orchestrator
+    - bitpoke
+    - database
+    kubeVersion: '>= 1.19.0-0'
+    name: mysql-operator
+    sources:
+    - https://github.com/bitpoke/mysql-operator.git
+    urls:
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/mysql-operator-0.6.4/mysql-operator-0.6.4.tgz
+    version: 0.6.4
+  - apiVersion: v1
+    appVersion: v0.6.3
     created: "2022-07-14T12:18:55.716626443Z"
     description: A helm chart for Bitpoke Operator for MySQL
     digest: def0392a170c1b97dc02d5ebbeaf928e6ede31b1e03df42c5386bfba81adbe7e
@@ -1019,4 +1038,4 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/tekton-0.0.64/tekton-0.0.64.tgz
     version: 0.0.64
-generated: "2023-03-16T12:49:49.057552067Z"
+generated: "2023-03-17T11:43:27.300178334Z"
