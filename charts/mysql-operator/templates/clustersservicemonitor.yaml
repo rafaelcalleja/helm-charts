@@ -1,7 +1,6 @@
 # This is a ServicMonitor for the MySQL Clusters.
 # To scrape the operator, we need https://github.com/bitpoke/mysql-operator/issues/151 first.
 {{- if .Values.mysqlClustersGlobalServiceMonitor.enabled }}
-{{- if .Capabilities.APIVersions.Has "monitoring.coreos.com/v1" }}
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
@@ -43,5 +42,4 @@ spec:
   {{- if .Values.mysqlClustersGlobalServiceMonitor.metricRelabelings }}
       metricRelabelings: {{ toYaml .Values.mysqlClustersGlobalServiceMonitor.metricRelabelings | nindent 8 }}
   {{- end }}
-{{- end }}
 {{- end }}
