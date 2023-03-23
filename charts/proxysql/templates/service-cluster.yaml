@@ -1,0 +1,41 @@
+{{- if .Values.proxysql.cluster.enabled }}
+{{- $fullname := include "proxysql.fullname" . -}}
+{{- $namespace := .Release.Namespace -}}
+{{- $replicaCount := (int .Values.replicaCount) -}}
+{{- $proxysqlPort := .Values.proxysql.port -}}
+{{- range $index, $element := until $replicaCount }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: "{{- $fullname -}}-{{- (toString $index) -}}"
+  labels:
+    {{- include "proxysql.labels" $ | nindent 4 }}
+spec:
+  type: {{ $.Values.service.type }}
+  ports:
+    - port: {{ $.Values.service.port | default $.Values.proxysql.mysql.port }}
+      targetPort: mysql
+      protocol: TCP
+      name: mysql
+    - port: {{ $.Values.proxysql.port }}
+      targetPort: proxysql
+      protocol: TCP
+      name: proxysql
+    {{- if $.Values.metrics.enabled }}
+    - port: 6070
+      targetPort: metrics
+      protocol: TCP
+      name: metrics
+    {{- end }}
+    {{- if $.Values.proxysql.web.enabled }}
+    - port: {{ $.Values.proxysql.web.port }}
+      targetPort: web
+      protocol: TCP
+      name: web
+    {{- end }}
+  selector:
+    {{- include "proxysql.selectorLabels" $ | nindent 4 }}
+    statefulset.kubernetes.io/pod-name: "{{- $fullname -}}-{{- (toString $index) -}}"
+  {{- end }}
+{{- end }}

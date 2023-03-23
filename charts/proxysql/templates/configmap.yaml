@@ -86,7 +86,7 @@ data:
       {{- $proxysqlPort := .Values.proxysql.port -}}
       {{- range $index, $element := until $replicaCount }}
       {
-        hostname="{{- $fullname -}}-{{- (toString $index) -}}.{{- $fullname -}}.{{- $namespace -}}"
+        hostname="{{- $fullname -}}-{{- (toString $index) -}}.{{- $namespace -}}"
         port={{ $proxysqlPort }}
       }{{- if lt (add1 $element) $replicaCount -}},{{- end -}}
       {{- end }}
