@@ -3,6 +3,7 @@
 This repository contains [Helm](https://helm.sh) charts for various projects.
 
 - [cert-manager](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/cert-manager)
+- [calert](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/calert)
 - [elasticsearch](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/elasticsearch)
 - [external-secrets](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/external-secrets)
 - [fluentd](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/fluentd)
