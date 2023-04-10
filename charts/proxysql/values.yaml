@@ -157,6 +157,16 @@ proxysql:
     replicationLagInterval: 10000
     replicationLagTimeout: 1500
     slaveLagWhenNull: 60
+    connectTimeout: 1000
+    connectInterval: 12000
+    pingTimeout: 1500
+    pingInterval: 8000
+    queryTimeout: 1500
+    queryInterval: 60000
+    readOnlyInterval: 1000
+    readOnlyTimeout: 1500
+
+
     # user: "monitor"
     # password: "monitor"
 

@@ -44,18 +44,18 @@ data:
       wait_timeout={{ int .Values.proxysql.mysql.waitTimeout }}
       monitor_enabled={{ .Values.proxysql.monitor.enabled }}
       {{- if .Values.proxysql.monitor.enabled }}
-      monitor_connect_interval=120000
-      monitor_connect_timeout=1000
+      monitor_connect_interval={{ .Values.proxysql.monitor.connectInterval }}
+      monitor_connect_timeout={{ .Values.proxysql.monitor.connectTimeout }}
       monitor_username="{{ required "monitor user name is required!" .Values.proxysql.monitor.user }}"
       monitor_password="{{ required "monitor password is required!" .Values.proxysql.monitor.password }}"
-      monitor_ping_interval=8000
+      monitor_ping_interval={{ .Values.proxysql.monitor.pingInterval }}
       monitor_ping_max_failures=3
-      monitor_ping_timeout=1500
-      monitor_query_interval=60000
-      monitor_query_timeout=1500
-      monitor_read_only_interval=1000
+      monitor_ping_timeout={{ .Values.proxysql.monitor.pingTimeout }}
+      monitor_query_interval={{ .Values.proxysql.monitor.queryInterval }}
+      monitor_query_timeout={{ .Values.proxysql.monitor.queryTimeout }}
+      monitor_read_only_interval={{ .Values.proxysql.monitor.readOnlyInterval }}
       monitor_read_only_max_timeout_count=3
-      monitor_read_only_timeout=1500
+      monitor_read_only_timeout={{ .Values.proxysql.monitor.readOnlyTimeout }}
       monitor_replication_lag_interval={{ .Values.proxysql.monitor.replicationLagInterval }}
       monitor_replication_lag_timeout={{ .Values.proxysql.monitor.replicationLagTimeout }}
       monitor_slave_lag_when_null={{ .Values.proxysql.monitor.slaveLagWhenNull }}
