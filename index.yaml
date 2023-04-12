@@ -1323,6 +1323,28 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/osiris-v0.0.4/osiris-v0.0.4.tgz
     version: v0.0.4
+  prometheus-node-exporter:
+  - apiVersion: v1
+    appVersion: 1.1.2
+    created: "2023-04-12T11:14:12.810110833Z"
+    description: A Helm chart for prometheus node-exporter
+    digest: ff3a5dbfc8508748cfc2a84e8af13b1a8c502274514dcf8adadd17beed447376
+    home: https://github.com/prometheus/node_exporter/
+    keywords:
+    - node-exporter
+    - prometheus
+    - exporter
+    maintainers:
+    - email: gianrubio@gmail.com
+      name: gianrubio
+    - name: vsliouniaev
+    - name: bismarck
+    name: prometheus-node-exporter
+    sources:
+    - https://github.com/prometheus/node_exporter/
+    urls:
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/prometheus-node-exporter-1.18.2/prometheus-node-exporter-1.18.2.tgz
+    version: 1.18.2
   proxysql:
   - apiVersion: v1
     appVersion: 2.5.1
@@ -1461,4 +1483,4 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/tekton-0.0.64/tekton-0.0.64.tgz
     version: 0.0.64
-generated: "2023-04-10T15:46:36.867419034Z"
+generated: "2023-04-12T11:14:12.810196233Z"
