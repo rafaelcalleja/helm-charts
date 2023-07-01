@@ -151,6 +151,26 @@ entries:
   ingress-nginx:
   - apiVersion: v1
     appVersion: 1.0.1
+    created: "2023-07-01T10:30:30.628440912Z"
+    description: Ingress controller for Kubernetes using NGINX as a reverse proxy
+      and load balancer
+    digest: 0debe0bd7e297956034b6cf44889c3559ce269b0f11f08f4b593695e41f9f5b8
+    home: https://github.com/kubernetes/ingress-nginx
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nginx_logo.svg/500px-Nginx_logo.svg.png
+    keywords:
+    - ingress
+    - nginx
+    kubeVersion: '>=1.19.0-0'
+    maintainers:
+    - name: ChiefAlexander
+    name: ingress-nginx
+    sources:
+    - https://github.com/kubernetes/ingress-nginx
+    urls:
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/ingress-nginx-4.0.3/ingress-nginx-4.0.3.tgz
+    version: 4.0.3
+  - apiVersion: v1
+    appVersion: 1.0.1
     created: "2023-07-01T10:20:09.292656166Z"
     description: Ingress controller for Kubernetes using NGINX as a reverse proxy
       and load balancer
@@ -1557,4 +1577,4 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/tekton-0.0.64/tekton-0.0.64.tgz
     version: 0.0.64
-generated: "2023-07-01T10:20:09.292746667Z"
+generated: "2023-07-01T10:30:30.628527312Z"
