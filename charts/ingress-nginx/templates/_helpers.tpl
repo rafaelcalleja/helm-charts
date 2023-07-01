@@ -107,10 +107,7 @@ Create the name of the backend service account to use - only used when podsecuri
 Return the appropriate apiGroup for PodSecurityPolicy.
 */}}
 {{- define "podSecurityPolicy.apiGroup" -}}
-{{- if semverCompare ">=1.14-0" .Capabilities.KubeVersion.GitVersion -}}
 {{- print "policy" -}}
-{{- else -}}
-{{- print "extensions" -}}
 {{- end -}}
 {{- end -}}
 
