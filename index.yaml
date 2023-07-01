@@ -148,6 +148,27 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/fluentd-0.3.9/fluentd-0.3.9.tgz
     version: 0.3.9
+  ingress-nginx:
+  - apiVersion: v1
+    appVersion: 1.0.1
+    created: "2023-07-01T10:20:09.292656166Z"
+    description: Ingress controller for Kubernetes using NGINX as a reverse proxy
+      and load balancer
+    digest: 0feb29bae919b9ee85865b16b69c19dcdfbbe413602bf55fe3310b6198e893c9
+    home: https://github.com/kubernetes/ingress-nginx
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nginx_logo.svg/500px-Nginx_logo.svg.png
+    keywords:
+    - ingress
+    - nginx
+    kubeVersion: '>=1.19.0-0'
+    maintainers:
+    - name: ChiefAlexander
+    name: ingress-nginx
+    sources:
+    - https://github.com/kubernetes/ingress-nginx
+    urls:
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/ingress-nginx-4.0.2/ingress-nginx-4.0.2.tgz
+    version: 4.0.2
   jenkins-x-platform:
   - apiVersion: v1
     created: "2022-11-22T10:23:45.436750637Z"
@@ -1536,4 +1557,4 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/tekton-0.0.64/tekton-0.0.64.tgz
     version: 0.0.64
-generated: "2023-04-12T11:21:22.464538665Z"
+generated: "2023-07-01T10:20:09.292746667Z"
