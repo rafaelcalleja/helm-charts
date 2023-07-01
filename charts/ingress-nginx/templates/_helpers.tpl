@@ -109,7 +109,6 @@ Return the appropriate apiGroup for PodSecurityPolicy.
 {{- define "podSecurityPolicy.apiGroup" -}}
 {{- print "policy" -}}
 {{- end -}}
-{{- end -}}
 
 {{/*
 Check the ingress controller version tag is at most three versions behind the last release
