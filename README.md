@@ -6,6 +6,8 @@ This repository contains [Helm](https://helm.sh) charts for various projects.
 - [calert](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/calert)
 - [elasticsearch](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/elasticsearch)
 - [external-secrets](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/external-secrets)
+- [external-dns](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/external-dns)
+- [ingress-nginx](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/ingress-nginx)
 - [fluentd](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/fluentd)
 - [jx](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/jx)
 - [jenkins-x-platform](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/jenkins-x-platform)
