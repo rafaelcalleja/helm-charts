@@ -108,6 +108,32 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/elasticsearch-7.12.1/elasticsearch-7.12.1.tgz
     version: 7.12.1
+  external-dns:
+  - apiVersion: v1
+    appVersion: 0.13.4
+    created: "2023-07-03T09:19:24.06883704Z"
+    dependencies:
+    - name: common
+      repository: https://dokify.github.io/helm-charts
+      version: 2.2.1
+    description: ExternalDNS is a Kubernetes addon that configures public DNS servers
+      with information about exposed Kubernetes services to make them discoverable.
+    digest: 664cae2ae5adae1028d43a64d275d2d183a041c88a83ae64b0b733f9f326c7af
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/external-dns/img/external-dns-stack-220x234.png
+    keywords:
+    - external-dns
+    - network
+    - dns
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    name: external-dns
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/external-dns
+    urls:
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/external-dns-6.20.4/external-dns-6.20.4.tgz
+    version: 6.20.4
   external-secrets:
   - apiVersion: v1
     appVersion: v0.5.7
@@ -1597,4 +1623,4 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/tekton-0.0.64/tekton-0.0.64.tgz
     version: 0.0.64
-generated: "2023-07-01T10:33:24.190834351Z"
+generated: "2023-07-03T09:19:24.06894614Z"
