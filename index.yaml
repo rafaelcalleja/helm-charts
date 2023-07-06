@@ -108,6 +108,20 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/elasticsearch-7.12.1/elasticsearch-7.12.1.tgz
     version: 7.12.1
+  exposecontroller:
+  - apiVersion: v1
+    appVersion: 2.3.120
+    created: "2023-07-06T15:19:17.139281063Z"
+    digest: 25c92f84dff576191fd9b55b97d5110dfdc739f07b18f303185993ddf7a86057
+    home: https://jenkins-x.github.io/jenkins-x-website/
+    icon: https://raw.githubusercontent.com/fabric8-apps/exposecontroller-app/master/src/main/fabric8/icon.png
+    maintainers:
+    - email: jenkins-x@googlegroups.com
+      name: Jenkins X Team
+    name: exposecontroller
+    urls:
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/exposecontroller-2.3.120/exposecontroller-2.3.120.tgz
+    version: 2.3.120
   external-dns:
   - apiVersion: v1
     appVersion: 0.13.4
@@ -1623,4 +1637,4 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/tekton-0.0.64/tekton-0.0.64.tgz
     version: 0.0.64
-generated: "2023-07-03T09:19:24.06894614Z"
+generated: "2023-07-06T15:19:17.139452273Z"
