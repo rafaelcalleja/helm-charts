@@ -110,6 +110,19 @@ entries:
     version: 7.12.1
   exposecontroller:
   - apiVersion: v1
+    appVersion: 2.3.121
+    created: "2023-07-06T15:56:05.361772392Z"
+    digest: 9ee1db1b491b03914bbd1eff68dde124e74155b27e3b6e89e1e3ba423c593da5
+    home: https://jenkins-x.github.io/jenkins-x-website/
+    icon: https://raw.githubusercontent.com/fabric8-apps/exposecontroller-app/master/src/main/fabric8/icon.png
+    maintainers:
+    - email: jenkins-x@googlegroups.com
+      name: Jenkins X Team
+    name: exposecontroller
+    urls:
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/exposecontroller-2.3.121/exposecontroller-2.3.121.tgz
+    version: 2.3.121
+  - apiVersion: v1
     appVersion: 2.3.120
     created: "2023-07-06T15:19:17.139281063Z"
     digest: 25c92f84dff576191fd9b55b97d5110dfdc739f07b18f303185993ddf7a86057
@@ -1637,4 +1650,4 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/tekton-0.0.64/tekton-0.0.64.tgz
     version: 0.0.64
-generated: "2023-07-06T15:19:17.139452273Z"
+generated: "2023-07-06T15:56:05.361875394Z"
