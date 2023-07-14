@@ -16,4 +16,4 @@ maintainers:
 name: keda
 sources:
 - https://github.com/kedacore/keda
-version: 2.11.1
+version: 2.11.2
