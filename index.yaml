@@ -352,6 +352,29 @@ entries:
     version: 2.1.155
   keda:
   - apiVersion: v1
+    appVersion: 2.11.1
+    created: "2023-07-14T11:07:50.592743722Z"
+    description: Event-based autoscaler for workloads on Kubernetes
+    digest: 87c59d419ce2cddc4df3bb8e6027bd5b05e9950dd35b645e5b6924b9aa087527
+    home: https://github.com/kedacore/keda
+    icon: https://raw.githubusercontent.com/kedacore/keda/main/images/keda-logo-500x500-white.png
+    kubeVersion: '>=v1.23.0-0'
+    maintainers:
+    - email: ahmels@microsoft.com
+      name: Ahmed ElSayed
+    - email: jorge_turrado@hotmail.es
+      name: Jorge Turrado
+    - email: kerkhove.tom@gmail.com
+      name: Tom Kerkhove
+    - email: zroubali@redhat.com
+      name: Zbynek Roubalik
+    name: keda
+    sources:
+    - https://github.com/kedacore/keda
+    urls:
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/keda-2.11.1/keda-2.11.1.tgz
+    version: 2.11.1
+  - apiVersion: v1
     appVersion: 2.7.1
     created: "2022-11-22T10:53:36.448326228Z"
     description: Event-based autoscaler for workloads on Kubernetes
@@ -1650,4 +1673,4 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/tekton-0.0.64/tekton-0.0.64.tgz
     version: 0.0.64
-generated: "2023-07-06T15:56:05.361875394Z"
+generated: "2023-07-14T11:07:50.592909725Z"
