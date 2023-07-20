@@ -1696,4 +1696,29 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/tekton-0.0.64/tekton-0.0.64.tgz
     version: 0.0.64
-generated: "2023-07-14T11:33:09.229854125Z"
+  velero:
+  - apiVersion: v1
+    appVersion: 1.5.3
+    created: "2023-07-20T09:27:56.858085528Z"
+    description: A Helm chart for velero
+    digest: 48fc28db0f095a487dc01701360da935bbc390b8e92fbfe3b32cd1c0ad872baa
+    home: https://github.com/vmware-tanzu/velero
+    icon: https://cdn-images-1.medium.com/max/1600/1*-9mb3AKnKdcL_QD3CMnthQ.png
+    maintainers:
+    - email: ashisham@vmware.com
+      name: ashish-amarnath
+    - email: carlisiac@vmware.com
+      name: carlisia
+    - email: ctadeu@gmail.com
+      name: cpanato
+    - email: brubakern@vmware.com
+      name: nrb
+    - email: krisss@vmware.com
+      name: skriss
+    name: velero
+    sources:
+    - https://github.com/vmware-tanzu/velero
+    urls:
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/velero-2.14.8/velero-2.14.8.tgz
+    version: 2.14.8
+generated: "2023-07-20T09:27:56.858487354Z"
