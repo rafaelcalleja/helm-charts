@@ -26,6 +26,7 @@ This repository contains [Helm](https://helm.sh) charts for various projects.
 - [kuberhealthy](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/kuberhealthy)
 - [keda-add-ons-http](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/keda-add-ons-http)
 - [keda](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/keda)
+- [velero](https://github.com/rafaelcalleja/helm-charts/tree/master/charts/velero)
 
 ## Installing Charts from this Repository
 
