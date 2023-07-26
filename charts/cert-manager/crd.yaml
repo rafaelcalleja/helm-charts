@@ -11,7 +11,6 @@ spec:
     listKind: ChallengeList
     plural: challenges
     singular: challenge
-  preserveUnknownFields: true
   scope: Namespaced
   versions:
   - additionalPrinterColumns:
@@ -1418,7 +1417,6 @@ spec:
     listKind: OrderList
     plural: orders
     singular: order
-  preserveUnknownFields: true
   scope: Namespaced
   versions:
   - additionalPrinterColumns:
@@ -1624,7 +1622,6 @@ spec:
     - cr
     - crs
     singular: certificaterequest
-  preserveUnknownFields: true
   scope: Namespaced
   versions:
   - additionalPrinterColumns:
@@ -1809,7 +1806,6 @@ spec:
     - cert
     - certs
     singular: certificate
-  preserveUnknownFields: true
   scope: Namespaced
   versions:
   - additionalPrinterColumns:
@@ -2044,7 +2040,6 @@ spec:
     listKind: ClusterIssuerList
     plural: clusterissuers
     singular: clusterissuer
-  preserveUnknownFields: true
   scope: Cluster
   versions:
   - name: v1alpha2
@@ -3775,7 +3770,6 @@ spec:
     listKind: IssuerList
     plural: issuers
     singular: issuer
-  preserveUnknownFields: true
   scope: Namespaced
   versions:
   - name: v1alpha2
