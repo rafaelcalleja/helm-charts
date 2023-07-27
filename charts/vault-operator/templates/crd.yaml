@@ -8,6 +8,8 @@ metadata:
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
+  conversion:
+    strategy: None
   group: vault.banzaicloud.com
   names:
     kind: Vault
@@ -15,4 +17,7 @@ spec:
     plural: vaults
     singular: vault
   scope: Namespaced
-  version: v1alpha1
+  versions:
+  - name: v1alpha1
+    served: true
+    storage: true
