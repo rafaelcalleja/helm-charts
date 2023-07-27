@@ -1699,6 +1699,16 @@ entries:
   vault-operator:
   - apiVersion: v1
     appVersion: 0.4.16
+    created: "2023-07-27T11:48:37.988592797Z"
+    description: A Helm chart for bank vault operator
+    digest: 174bc253ca33f963fc1922ceb20a9e9119720b0aafe5948377c54f0828e10652
+    icon: https://raw.githubusercontent.com/jenkins-x/jenkins-x-platform/d273e09/images/go.png
+    name: vault-operator
+    urls:
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/vault-operator-0.3.4/vault-operator-0.3.4.tgz
+    version: 0.3.4
+  - apiVersion: v1
+    appVersion: 0.4.16
     created: "2023-07-27T09:36:15.464161671Z"
     description: A Helm chart for bank vault operator
     digest: fedc00340e150595f6cea533eded86db389fad5e53e729ad7c9bf77e35206d1b
@@ -1776,4 +1786,4 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/velero-2.14.8/velero-2.14.8.tgz
     version: 2.14.8
-generated: "2023-07-27T09:36:15.464323778Z"
+generated: "2023-07-27T11:48:37.988959194Z"
