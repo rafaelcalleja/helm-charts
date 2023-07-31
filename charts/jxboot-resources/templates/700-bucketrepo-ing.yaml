@@ -1,0 +1,36 @@
+{{- if .Values.bucketrepo.enabled }}
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+{{- if .Values.cluster.ingress.annotations }}
+{{ toYaml .Values.cluster.ingress.annotations | indent 4 }}
+{{- end }}
+{{- if .Values.bucketrepo.ingress.annotations }}
+{{ toYaml .Values.bucketrepo.ingress.annotations | indent 4 }}
+{{- end }}
+  name: bucketrepo
+spec:
+  rules:
+  - host: bucketrepo{{ .Values.cluster.namespaceSubDomain }}{{ .Values.cluster.domain }}
+    http:
+      paths:
+      - backend:
+          serviceName: bucketrepo
+          servicePort: 80
+{{- if .Values.cluster.tls }}
+  tls:
+  - hosts:
+    - bucketrepo{{ .Values.cluster.namespaceSubDomain }}{{ .Values.cluster.domain }}
+{{- if .Values.bucketrepo.ingress.tls.secretName }}
+    secretName: "{{ .Values.bucketrepo.ingress.tls.secretName }}"
+{{- else if .Values.cluster.ingress.tls.secretName }}
+    secretName: "{{ .Values.cluster.ingress.tls.secretName }}"
+{{- else if eq .Values.certmanager.production "true" }}
+    secretName: "tls-{{ .Values.cluster.domain | replace "." "-" }}-p"
+{{- else }}
+    secretName: "tls-{{ .Values.cluster.domain | replace "." "-" }}-s"
+{{- end }}
+{{- end }}
+{{- end }}

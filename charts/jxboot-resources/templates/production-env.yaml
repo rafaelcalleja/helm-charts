@@ -1,0 +1,19 @@
+{{- if .Values.gitops.production.repo }}
+apiVersion: jenkins.io/v1
+kind: Environment
+metadata:
+  creationTimestamp: null
+  name: production
+spec:
+  kind: Permanent
+  label: Production
+  namespace: {{ .Values.gitops.production.namespace }}
+  order: 200
+  previewGitInfo:
+    user: {}
+  promotionStrategy: Manual
+  remoteCluster: {{ .Values.gitops.production.remote }}
+  source:
+    ref: master
+    url: "{{ .Values.gitops.production.server | default .Values.gitops.server }}{{ .Values.gitops.gitUrlPathPrefix}}/{{ .Values.gitops.production.owner | default .Values.gitops.owner }}/{{ .Values.gitops.production.repo }}.git"
+{{- end }}

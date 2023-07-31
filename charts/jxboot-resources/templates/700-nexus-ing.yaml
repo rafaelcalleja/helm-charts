@@ -1,0 +1,36 @@
+{{- if .Values.nexus.enabled }}
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+{{- if .Values.cluster.ingress.annotations }}
+{{ toYaml .Values.cluster.ingress.annotations | indent 4 }}
+{{- end }}
+{{- if .Values.nexus.ingress.annotations }}
+{{ toYaml .Values.nexus.ingress.annotations | indent 4 }}
+{{- end }}
+  name: nexus
+spec:
+  rules:
+  - host: nexus{{ .Values.cluster.namespaceSubDomain }}{{ .Values.cluster.domain }}
+    http:
+      paths:
+      - backend:
+          serviceName: nexus
+          servicePort: 80
+{{- if .Values.cluster.tls }}
+  tls:
+  - hosts:
+    - nexus{{ .Values.cluster.namespaceSubDomain }}{{ .Values.cluster.domain }}
+{{- if .Values.nexus.ingress.tls.secretName }}
+    secretName: "{{ .Values.nexus.ingress.tls.secretName }}"
+{{- else if .Values.cluster.ingress.tls.secretName }}
+    secretName: "{{ .Values.cluster.ingress.tls.secretName }}"
+{{- else if eq .Values.certmanager.production "true" }}
+    secretName: "tls-{{ .Values.cluster.domain | replace "." "-" }}-p"
+{{- else }}
+    secretName: "tls-{{ .Values.cluster.domain | replace "." "-" }}-s"
+{{- end }}
+{{- end }}
+{{- end }}

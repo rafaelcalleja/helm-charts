@@ -1,0 +1,67 @@
+apiVersion: jenkins.io/v1
+kind: Environment
+metadata:
+  labels:
+    env: dev
+    team: {{ .Values.cluster.namespace | default "jx" }}
+  name: dev
+spec:
+  kind: Development
+  label: Development
+  namespace: {{ .Values.cluster.namespace | default "jx" }}
+  previewGitInfo:
+    user: {}
+  promotionStrategy: Never
+{{- if  and .Values.gitops.dev.repo .Values.gitops.dev.owner }}
+  source:
+    ref: master
+    url: "{{ .Values.gitops.dev.server | default .Values.gitops.server }}{{ .Values.gitops.gitUrlPathPrefix}}/{{ .Values.gitops.dev.owner }}/{{ .Values.gitops.dev.repo }}.git"
+{{- end }}
+  teamSettings:
+    appsRepository: http://chartmuseum.jenkins-x.io
+    buildPackName: {{ .Values.gitops.dev.buildPackName }}
+    buildPackRef: {{ .Values.gitops.dev.buildPackRef }}
+    buildPackUrl: {{ .Values.gitops.dev.buildPackUrl }}
+    defaultScheduler:
+      apiVersion: jenkins.io/v1
+      kind: Scheduler
+      name: default-scheduler
+    dockerRegistryOrg: "{{ .Values.gitops.dev.dockerRegistryOrg }}"
+    envOrganisation: "{{ .Values.gitops.dev.envOrganisation }}"
+    gitServer: https://github.com
+    gitPublic: {{ .Values.gitops.gitPublic }}
+{{- if eq .Values.helmMajorVersion "3" }}
+    helmBinary: "helm3"
+    helmTemplate: false
+{{- else }}
+    helmTemplate: true
+{{- end }}
+    kubeProvider: "{{ .Values.cluster.provider }}"
+    pipelineUsername: "{{ .Values.JenkinsXGitHub.username }}"
+    pipelineUserEmail: "{{ .Values.JenkinsXGitHub.email }}"
+    prowConfig: Scheduler
+{{- if eq .Values.gitops.webhook "jenkins" }}
+    promotionEngine: Jenkins
+    importMode: Jenkinsfile
+{{- else }}
+    importMode: YAML
+    promotionEngine: Prow
+    prowEngine: Tekton
+{{- end }}
+    quickstartLocations:
+{{ toYaml .Values.gitops.dev.quickstartLocations | indent 6 }}
+{{- if or .Values.storage.logs.url .Values.storage.reports.url }}
+    storageLocations:
+{{- end }}
+{{- if  .Values.storage.logs.url }}
+    - bucketUrl: {{ .Values.storage.logs.url }}
+      classifier: logs
+{{- end }}
+{{- if  .Values.storage.reports.url }}
+    - bucketUrl: {{ .Values.storage.reports.url }}
+      classifier: reports
+{{- end }}
+    versionStreamUrl: "{{ .Values.gitops.versionStreamUrl }}"
+    versionStreamRef: "{{ .Values.gitops.versionStreamRef }}"
+    useGitOps: true
+  webHookEngine: "{{ .Values.gitops.webhook | title }}"
