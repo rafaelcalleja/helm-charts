@@ -350,6 +350,16 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/jx-2.1.155/jx-2.1.155.tgz
     version: 2.1.155
+  jxboot-resources:
+  - apiVersion: v1
+    created: "2023-07-31T08:57:03.169620681Z"
+    description: A Helm chart for the resources for JX Boot
+    digest: 1f44f4e4556bed9656e9bff4825c68c77bb79f81dcafdd00e5c9adb96e676495
+    icon: https://avatars2.githubusercontent.com/u/47602533
+    name: jxboot-resources
+    urls:
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/jxboot-resources-0.0.44/jxboot-resources-0.0.44.tgz
+    version: 0.0.44
   keda:
   - apiVersion: v1
     appVersion: 2.11.1
@@ -1796,4 +1806,4 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/velero-2.14.8/velero-2.14.8.tgz
     version: 2.14.8
-generated: "2023-07-27T12:03:39.716879136Z"
+generated: "2023-07-31T08:57:03.169775382Z"
