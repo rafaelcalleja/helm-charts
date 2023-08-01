@@ -1708,6 +1708,16 @@ entries:
     version: 0.14.3
   tekton:
   - apiVersion: v1
+    created: "2023-08-01T09:41:37.628038764Z"
+    description: A Helm chart for Tekton Pipelines
+    digest: 6b7f7386bc18fd6a7b5842a50efe8312e37010ed7a5c76647382e60895a853eb
+    home: https://github.com/jenkins-x-charts/tekton/
+    icon: https://avatars2.githubusercontent.com/u/47602533
+    name: tekton
+    urls:
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/tekton-0.0.66/tekton-0.0.66.tgz
+    version: 0.0.66
+  - apiVersion: v1
     created: "2023-08-01T08:25:54.940699777Z"
     description: A Helm chart for Tekton Pipelines
     digest: a864590fbed578da58df965d0048de87e5c8d8900bc82025f831a60d06421ec8
@@ -1827,4 +1837,4 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/velero-2.14.8/velero-2.14.8.tgz
     version: 2.14.8
-generated: "2023-08-01T08:25:54.940789978Z"
+generated: "2023-08-01T09:41:37.628208566Z"
