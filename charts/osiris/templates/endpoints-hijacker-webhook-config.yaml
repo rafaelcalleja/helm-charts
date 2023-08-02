@@ -31,6 +31,7 @@ metadata:
     app.kubernetes.io/managed-by: {{ .Release.Service }}
 webhooks:
 - name: endpoints-hijacker.osiris.dm.gg
+  admissionReviewVersions: ["v1", "v1beta1"]
   clientConfig:
     service:
       namespace: {{ .Release.Namespace }}
