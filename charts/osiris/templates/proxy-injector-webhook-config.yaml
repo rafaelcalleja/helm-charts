@@ -32,6 +32,7 @@ metadata:
 webhooks:
 - name: proxy-injector.osiris.dm.gg
   admissionReviewVersions: ["v1", "v1beta1"]
+  sideEffects: None
   clientConfig:
     service:
       namespace: {{ .Release.Namespace }}
