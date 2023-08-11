@@ -32,16 +32,16 @@ spec:
     additionalPrinterColumns:
       - name: Succeeded
         type: string
-        JSONPath: ".status.conditions[?(@.type==\"Succeeded\")].status"
+        jsonPath: ".status.conditions[?(@.type==\"Succeeded\")].status"
       - name: Reason
         type: string
-        JSONPath: ".status.conditions[?(@.type==\"Succeeded\")].reason"
+        jsonPath: ".status.conditions[?(@.type==\"Succeeded\")].reason"
       - name: StartTime
         type: date
-        JSONPath: .status.startTime
+        jsonPath: .status.startTime
       - name: CompletionTime
         type: date
-        JSONPath: .status.completionTime
+        jsonPath: .status.completionTime
   - name: v1beta1
     served: true
     storage: false
@@ -55,16 +55,16 @@ spec:
     additionalPrinterColumns:
       - name: Succeeded
         type: string
-        JSONPath: ".status.conditions[?(@.type==\"Succeeded\")].status"
+        jsonPath: ".status.conditions[?(@.type==\"Succeeded\")].status"
       - name: Reason
         type: string
-        JSONPath: ".status.conditions[?(@.type==\"Succeeded\")].reason"
+        jsonPath: ".status.conditions[?(@.type==\"Succeeded\")].reason"
       - name: StartTime
         type: date
-        JSONPath: .status.startTime
+        jsonPath: .status.startTime
       - name: CompletionTime
         type: date
-        JSONPath: .status.completionTime
+        jsonPath: .status.completionTime
   names:
     kind: TaskRun
     plural: taskruns
