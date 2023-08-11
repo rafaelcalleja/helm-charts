@@ -29,6 +29,19 @@ spec:
           spec:
             type: object
             x-kubernetes-preserve-unknown-fields: true
+    additionalPrinterColumns:
+      - name: Succeeded
+        type: string
+        JSONPath: ".status.conditions[?(@.type==\"Succeeded\")].status"
+      - name: Reason
+        type: string
+        JSONPath: ".status.conditions[?(@.type==\"Succeeded\")].reason"
+      - name: StartTime
+        type: date
+        JSONPath: .status.startTime
+      - name: CompletionTime
+        type: date
+        JSONPath: .status.completionTime
   - name: v1beta1
     served: true
     storage: false
@@ -39,6 +52,19 @@ spec:
           spec:
             type: object
             x-kubernetes-preserve-unknown-fields: true
+    additionalPrinterColumns:
+      - name: Succeeded
+        type: string
+        JSONPath: ".status.conditions[?(@.type==\"Succeeded\")].status"
+      - name: Reason
+        type: string
+        JSONPath: ".status.conditions[?(@.type==\"Succeeded\")].reason"
+      - name: StartTime
+        type: date
+        JSONPath: .status.startTime
+      - name: CompletionTime
+        type: date
+        JSONPath: .status.completionTime
   names:
     kind: PipelineRun
     plural: pipelineruns
@@ -49,19 +75,6 @@ spec:
     - pr
     - prs
   scope: Namespaced
-  additionalPrinterColumns:
-  - name: Succeeded
-    type: string
-    JSONPath: ".status.conditions[?(@.type==\"Succeeded\")].status"
-  - name: Reason
-    type: string
-    JSONPath: ".status.conditions[?(@.type==\"Succeeded\")].reason"
-  - name: StartTime
-    type: date
-    JSONPath: .status.startTime
-  - name: CompletionTime
-    type: date
-    JSONPath: .status.completionTime
   # Opt into the status subresource so metadata.generation
   # starts to increment
 {{- end -}}
