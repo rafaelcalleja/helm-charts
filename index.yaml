@@ -1671,6 +1671,23 @@ entries:
   proxysql:
   - apiVersion: v1
     appVersion: 2.5.1
+    created: "2023-10-06T10:12:41.658941681Z"
+    description: A proxysql Helm chart for Kubernetes. Offers option to expose web
+      interface through Ingress. Uses ServiceMonitor to collect metrics.
+    digest: d8c4f3b912b997e81426a9c4f6f539be41327a1818f1f8bf7b846970fadeb738
+    home: https://github.com/christianknell/helm-charts
+    icon: https://proxysql.com/wp-content/uploads/2019/11/ProxySQL-BIG-e1581368792603.png
+    maintainers:
+    - email: christian@knell.it
+      name: christianknell
+    name: proxysql
+    sources:
+    - https://github.com/sysown/proxysql
+    urls:
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/proxysql-1.1.6/proxysql-1.1.6.tgz
+    version: 1.1.6
+  - apiVersion: v1
+    appVersion: 2.5.1
     created: "2023-04-10T15:46:36.867341234Z"
     description: A proxysql Helm chart for Kubernetes. Offers option to expose web
       interface through Ingress. Uses ServiceMonitor to collect metrics.
@@ -1946,4 +1963,4 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/velero-2.14.8/velero-2.14.8.tgz
     version: 2.14.8
-generated: "2023-08-11T11:48:21.836574912Z"
+generated: "2023-10-06T10:12:41.659062288Z"
