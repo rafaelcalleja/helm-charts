@@ -1,0 +1,11 @@
+apiVersion: kpt.dev/v1alpha1
+kind: Kptfile
+metadata:
+  name: g4f
+upstream:
+  type: git
+  git:
+    commit: 4407ead19840c26dc55b37a957a73074ed51c1a7
+    repo: https://github.com/rafaelcalleja/g4f
+    directory: /charts/g4f
+    ref: main
