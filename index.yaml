@@ -201,6 +201,16 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/fluentd-0.3.9/fluentd-0.3.9.tgz
     version: 0.3.9
+  g4f:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2023-10-07T10:40:31.816312822Z"
+    description: A Helm chart for Kubernetes
+    digest: 1bd9eafd23e47eaab0b495be83f960b7ac99c5c39ca93a43fad7a9d02d04ffb1
+    name: g4f
+    urls:
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/g4f-0.0.3/g4f-0.0.3.tgz
+    version: 0.0.3
   ingress-nginx:
   - apiVersion: v1
     appVersion: 1.0.1
@@ -1963,4 +1973,4 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/velero-2.14.8/velero-2.14.8.tgz
     version: 2.14.8
-generated: "2023-10-06T10:12:41.659062288Z"
+generated: "2023-10-07T10:40:31.81663033Z"
