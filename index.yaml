@@ -204,6 +204,15 @@ entries:
   g4f:
   - apiVersion: v1
     appVersion: "1.0"
+    created: "2023-11-15T07:36:49.910968878Z"
+    description: A Helm chart for Kubernetes
+    digest: d4631763fbc399ce5900656b5c394e1ee5ff8a81191ca637cdfecdf89c3baf8b
+    name: g4f
+    urls:
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/g4f-0.0.4/g4f-0.0.4.tgz
+    version: 0.0.4
+  - apiVersion: v1
+    appVersion: "1.0"
     created: "2023-10-07T10:40:31.816312822Z"
     description: A Helm chart for Kubernetes
     digest: 1bd9eafd23e47eaab0b495be83f960b7ac99c5c39ca93a43fad7a9d02d04ffb1
@@ -1973,4 +1982,4 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/velero-2.14.8/velero-2.14.8.tgz
     version: 2.14.8
-generated: "2023-10-07T10:40:31.81663033Z"
+generated: "2023-11-15T07:36:49.911081979Z"
