@@ -5,7 +5,7 @@ metadata:
 upstream:
   type: git
   git:
-    commit: 4407ead19840c26dc55b37a957a73074ed51c1a7
+    commit: 76e7a2154c82cb1bb7a98faadb229d106729a756
     repo: https://github.com/rafaelcalleja/g4f
     directory: /charts/g4f
-    ref: main
+    ref: 76e7a2154c82cb1bb7a98faadb229d106729a756

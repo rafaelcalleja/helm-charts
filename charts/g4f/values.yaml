@@ -19,6 +19,10 @@ env:
   GUNICORN_TIMEOUT: "360"
   HTTPS_PROXY: ""
 
+deployments:
+  providers: []
+
+
 serviceAccount:
   # Specifies whether a service account should be created
   create: true

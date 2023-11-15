@@ -1,33 +1,40 @@
 {{ $_ := set . "Values" (fromYaml (include "common.tplvalues.render" ( dict "value" .Values "context" $ ))) }}
+{{- range $index, $provider := .Values.deployments.providers }}
+{{- if $provider.enabled }}
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "g4f.fullname" . }}
+  name: {{ include "g4f.fullname" $ }}-{{ splitList "." $provider.name | last | lower }}
   labels:
-{{ include "g4f.labels" . | indent 4 }}
+{{ include "g4f.labels" $ | indent 4 }}
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: {{ $.Values.replicaCount }}
   selector:
     matchLabels:
-      app.kubernetes.io/name: {{ include "g4f.name" . }}
-      app.kubernetes.io/instance: {{ .Release.Name }}
+      app.kubernetes.io/name: {{ include "g4f.name" $ }}
+      app.kubernetes.io/instance: {{ $.Release.Name }}
+      provider/model: {{ $provider.model }}
+      provider/name: {{ $provider.name }}
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: {{ include "g4f.name" . }}
-        app.kubernetes.io/instance: {{ .Release.Name }}
+        app.kubernetes.io/name: {{ include "g4f.name" $ }}
+        app.kubernetes.io/instance: {{ $.Release.Name }}
+        provider/model: {{ $provider.model }}
+        provider/name: {{ $provider.name }}
     spec:
-    {{- with .Values.imagePullSecrets }}
+    {{- with $.Values.imagePullSecrets }}
       imagePullSecrets:
-        {{- toYaml . | nindent 8 }}
+        {{- toYaml $ | nindent 8 }}
     {{- end }}
-      serviceAccountName: {{ template "g4f.serviceAccountName" . }}
+      serviceAccountName: {{ template "g4f.serviceAccountName" $ }}
       securityContext:
-        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+        {{- toYaml $.Values.podSecurityContext | nindent 8 }}
       volumes:
         - name: secrets
           secret:
-            secretName: {{ include "g4f.fullname" . }}
+            secretName: {{ include "g4f.fullname" $ }}
             optional: true
             defaultMode: 0755
         - name: wireguard-config
@@ -42,11 +49,11 @@ spec:
             - name: secrets
               mountPath: /etc/wireguard-secret/
       containers:
-        - name: {{ .Chart.Name }}
+        - name: {{ $.Chart.Name }}
           securityContext:
-            {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+            {{- toYaml $.Values.securityContext | nindent 12 }}
+          image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag }}"
+          imagePullPolicy: {{ $.Values.image.pullPolicy }}
           volumeMounts:
             - name: secrets
               mountPath: /app/secrets
@@ -58,24 +65,28 @@ spec:
             httpGet:
               path: /
               port: 80
-            periodSeconds: 60
+            periodSeconds: 90
             successThreshold: 1
-            timeoutSeconds: 60
-            failureThreshold: 5
+            timeoutSeconds: 70
+            failureThreshold: 3
+            terminationGracePeriodSeconds: 60
           readinessProbe:
             httpGet:
               path: /
               port: 80
-            periodSeconds: 60
+            periodSeconds: 90
             successThreshold: 1
-            timeoutSeconds: 60
-            failureThreshold: 5
+            timeoutSeconds: 70
+            failureThreshold: 3
+          env:
+          - name: MODEL_PROVIDER
+            value: "{{ range $index := until ($provider.retry | int) }}{{ $provider.name }}{{ if ne $index (sub $provider.retry 1) }},{{ end }}{{ end }}"
           envFrom:
             - secretRef:
-                name: {{ include "g4f.fullname" . }}-env
+                name: {{ include "g4f.fullname" $ }}-env
                 optional: true
           resources:
-            {{- toYaml .Values.resources | nindent 12 }}
+            {{- toYaml $.Values.resources | nindent 12 }}
         - name: "wireguard"
           image: "linuxserver/wireguard:latest"
           ports:
@@ -97,15 +108,17 @@ spec:
             capabilities:
               add:
                 - NET_ADMIN
-      {{- with .Values.nodeSelector }}
+      {{- with $.Values.nodeSelector }}
       nodeSelector:
-        {{- toYaml . | nindent 8 }}
+        {{- toYaml $ | nindent 8 }}
       {{- end }}
-    {{- with .Values.affinity }}
+    {{- with $.Values.affinity }}
       affinity:
-        {{- toYaml . | nindent 8 }}
+        {{- toYaml $ | nindent 8 }}
     {{- end }}
-    {{- with .Values.tolerations }}
+    {{- with $.Values.tolerations }}
       tolerations:
-        {{- toYaml . | nindent 8 }}
+        {{- toYaml $ | nindent 8 }}
     {{- end }}
+{{- end }}
+{{- end }}
