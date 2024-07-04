@@ -229,6 +229,20 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/g4f-0.0.3/g4f-0.0.3.tgz
     version: 0.0.3
+  grafana-dashboard:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2024-07-04T08:09:04.641416098Z"
+    description: A helm chart for packaging Grafana dashboards for Jenkins X
+    digest: 295f7ad2a0ba1533fa03f17ed7602d5d9e732bd0ba72295c072a62b947f7693b
+    home: https://github.com/jenkins-x-charts/grafana-dashboard
+    icon: https://avatars.githubusercontent.com/u/7195757
+    name: grafana-dashboard
+    sources:
+    - https://github.com/jenkins-x-charts/grafana-dashboard
+    urls:
+    - https://github.com/rafaelcalleja/helm-charts/releases/download/grafana-dashboard-0.2.3/grafana-dashboard-0.2.3.tgz
+    version: 0.2.3
   ingress-nginx:
   - apiVersion: v1
     appVersion: 1.0.1
@@ -1991,4 +2005,4 @@ entries:
     urls:
     - https://github.com/rafaelcalleja/helm-charts/releases/download/velero-2.14.8/velero-2.14.8.tgz
     version: 2.14.8
-generated: "2023-11-15T07:38:30.988948466Z"
+generated: "2024-07-04T08:09:04.64156665Z"
